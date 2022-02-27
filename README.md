@@ -6,13 +6,12 @@ hexo clean && hexo g && gulp build && hexo d
 ```
 
 ## Blog
-- [x] my site is published at https://thanksforfun.me
+- [x] my blog is published at https://shangguanfch.github.io
 - [x] use [hexo](https://hexo.io/) and [hexo-theme-next](https://github.com/iissnan/hexo-theme-next/)
 - [x] set up a distinctive website logo: [favicon.ico](/uploads/favicon.ico). Original picture: [I-Encourage-YOU.jpg](http://pic1.win4000.com/wallpaper/0/51ee2f28c52a7.jpg).
 
 ## Code Hosting Platform
 - [x] hosted by [GitHub Pages](https://pages.github.com/)
-- [ ] hosted by [Coding Pages](https://pages.coding.net/)
 - [ ] hosted by [GitLab Pages](https://about.gitlab.com/features/pages/)
 - [ ] hosted by [码云 Pages](http://git.mydoc.io/?t=180861)
 - [ ] hosted by [Heroku](https://www.heroku.com/)
@@ -21,7 +20,7 @@ hexo clean && hexo g && gulp build && hexo d
 - [ ] hosted by my own Web server
 
 ## Comment System
-- [ ] [Gitalk](https://github.com/gitalk/gitalk) # hexo-theme-next hasn't support Gitalk officially yet, see [Feature: Add Gitalk Support #1814](https://github.com/iissnan/hexo-theme-next/pull/1814)
+- [x] [Gitalk](https://github.com/gitalk/gitalk)
 - [ ] [Gitment](https://github.com/imsun/gitment)
 - [ ] [Disqus](https://disqus.com/)
 - [ ] [HyperComments](https://www.hypercomments.com/)
@@ -29,12 +28,12 @@ hexo clean && hexo g && gulp build && hexo d
 - [ ] [ChangYan](https://changyan.kuaizhan.com/)
 
 ## Custom Settings
-- [ ] `scheme: Muse` in `hexo-site/themes/next/_config.yml`
-- [ ] `scheme: Pisces` in `hexo-site/themes/next/_config.yml`
-- [x] `scheme: Gemini` in `hexo-site/themes/next/_config.yml`
+- [ ] `scheme: Muse` in `hexo-site/source/_data/next.yml`
+- [ ] `scheme: Pisces`
+- [x] `scheme: Gemini`
 
 - [x] changes in `hexo-site/_config.yml`: `skip_render: README.md`, `permalink: :title/`
-- [x] changes in `hexo-site/themes/next/_config.yml`: turn on `auto_excerpt`, turn on `post_copyright`
+- [x] changes in `hexo-site/source/_data/next.yml`: turn on `auto_excerpt`, turn on `post_copyright`
 - [ ] changes in `hexo-site/themes/next/source/css/_costum/costum.styl`: round avatar
   ```
   # round avatar
@@ -69,7 +68,8 @@ hexo clean && hexo g && gulp build && hexo d
 - [ ] use [InstantClick](http://instantclick.io/) to speed up website ~~like [空念远兮](http://lukang.me/2015/optimization-of-hexo-2.html#comments)~~: it may not as easy as it looks, see [可以用instantClick加快访问 #632](https://github.com/iissnan/hexo-theme-next/issues/632)
 
 ## Synchronization and Backup
-- [x] use [hexo-deployer-git](https://github.com/hexojs/hexo-deployer-git) to backup all the blog files
+- [x] use [Github Actions](https://docs.github.com/en/actions) to deploy and backup, see [甦傑：如何使用Github-Actions实现Hexo博客自动化部署](https://sujie-168.top/2021/05/24/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8Github-Actions%E5%AE%9E%E7%8E%B0Hexo%E5%8D%9A%E5%AE%A2%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2/)
+- [ ] use [hexo-deployer-git](https://github.com/hexojs/hexo-deployer-git) to backup all the blog files
 - [ ] use [hexo-git-backup](https://github.com/coneycode/hexo-git-backup) to backup
 - [ ] use [CrazyMilk的方法](http://crazymilk.github.io/2015/12/28/GitHub-Pages-Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/) to backup: see [窝飞的回答-知乎](https://www.zhihu.com/question/21193762/answer/149965944) or [Yaro's Notes: Hexo-Github建博客教程](https://yaro97.github.io/2017/01/07/Hexo-Github%E5%BB%BA%E5%8D%9A%E5%AE%A2%E6%95%99%E7%A8%8B/)
 - [ ] use [Travis CI](https://www.travis-ci.org/) to deploy and backup, see [Z's Blog: 使用Travis CI自动部署Github/Coding Pages博客](https://imzlp.me/posts/42318/) or [zccz14: 优雅地使用 Hexo](https://zccz14.com/2016/12/30/%E4%BC%98%E9%9B%85%E5%9C%B0%E4%BD%BF%E7%94%A8Hexo/)
