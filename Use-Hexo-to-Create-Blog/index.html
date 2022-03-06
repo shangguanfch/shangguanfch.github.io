@@ -20,17 +20,17 @@
     var CONFIG = {"hostname":"shangguanfch.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="What is Hexo?Hexo is a fast, simple and powerful blog framework. You write posts in Markdown (or other languages) and Hexo generates static files with a beautiful theme in seconds.">
+  <meta name="description" content="What is Hexo?Hexo is a fast, simple and powerful blog framework. You write posts in Markdown and Hexo generates static files with a beautiful theme in seconds.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Use Hexo to Create Blog">
 <meta property="og:url" content="https://shangguanfch.github.io/Use-Hexo-to-Create-Blog/index.html">
 <meta property="og:site_name" content="ThanksForFun">
-<meta property="og:description" content="What is Hexo?Hexo is a fast, simple and powerful blog framework. You write posts in Markdown (or other languages) and Hexo generates static files with a beautiful theme in seconds.">
+<meta property="og:description" content="What is Hexo?Hexo is a fast, simple and powerful blog framework. You write posts in Markdown and Hexo generates static files with a beautiful theme in seconds.">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://shangguanfch.github.io/uploads/lock.svg">
 <meta property="og:image" content="https://shangguanfch.github.io/uploads/neutral.svg">
 <meta property="article:published_time" content="2017-09-03T10:52:00.000Z">
-<meta property="article:modified_time" content="2022-03-06T17:36:49.898Z">
+<meta property="article:modified_time" content="2022-03-06T18:04:20.656Z">
 <meta property="article:author" content="ThanksForFun">
 <meta property="article:tag" content="blog">
 <meta property="article:tag" content="hexo">
@@ -236,7 +236,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2022-03-07 01:36:49" itemprop="dateModified" datetime="2022-03-07T01:36:49+08:00">2022-03-07</time>
+                <time title="Modified: 2022-03-07 02:04:20" itemprop="dateModified" datetime="2022-03-07T02:04:20+08:00">2022-03-07</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -273,7 +273,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>What is <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>?<br>Hexo is a fast, simple and powerful blog framework. You write posts in Markdown (or other languages) and Hexo generates static files with a beautiful theme in seconds.</p>
+        <p>What is <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>?<br>Hexo is a fast, simple and powerful blog framework. You write posts in Markdown and Hexo generates static files with a beautiful theme in seconds.</p>
 <span id="more"></span>
 
 <h2 id="Requirements"><a href="#Requirements" class="headerlink" title="Requirements"></a>Requirements</h2><p>Installing Hexo is quite easy. However, you do need to have a couple of other things installed first:</p>
@@ -288,16 +288,13 @@
 <figure class="highlight tcl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># install command cnpm</span></span><br><span class="line">npm install -g cnpm --<span class="keyword">registry</span>=https://<span class="keyword">registry</span>.npm.taobao.org</span><br><span class="line"></span><br><span class="line"><span class="comment"># or just set registry</span></span><br><span class="line">npm config <span class="keyword">set</span> <span class="keyword">registry</span> https://<span class="keyword">registry</span>.npm.taobao.org</span><br></pre></td></tr></table></figure>
 
 <h2 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h2><p>Run the following commands</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br><span class="line">hexo init blog</span><br><span class="line"><span class="built_in">cd</span> blog</span><br><span class="line">hexo server</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br><span class="line">hexo init hexo-site</span><br><span class="line"><span class="built_in">cd</span> hexo-site</span><br><span class="line">hexo server</span><br></pre></td></tr></table></figure>
 <p>Then you can see a web page at <a target="_blank" rel="noopener" href="http://localhost:4000/">http://localhost:4000/</a>.</p>
 <p>Or a more convenient way: use neoFelhz’s <a target="_blank" rel="noopener" href="https://github.com/neoFelhz/HexoKit" title="https://github.com/neoFelhz/HexoKit">HexoKit</a>.</p>
 <h2 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h2><p>For more information, visit <a target="_blank" rel="noopener" href="https://hexo.io/docs/commands.html">https://hexo.io/docs/commands.html</a>.</p>
 <figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># in hexo-site</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># start a local server, by default,</span></span><br><span class="line"><span class="comment"># Hexo is running at http://localhost:4000/</span></span><br><span class="line">hexo s</span><br><span class="line"></span><br><span class="line"><span class="comment"># clean the cache file (db.json)</span></span><br><span class="line"><span class="comment"># and generated files (/public)</span></span><br><span class="line">hexo clean</span><br><span class="line"></span><br><span class="line"><span class="comment"># generate static files</span></span><br><span class="line">hexo g</span><br><span class="line"></span><br><span class="line"><span class="comment"># deploy website</span></span><br><span class="line">hexo d</span><br><span class="line"></span><br><span class="line"><span class="comment"># create new article in source/_posts</span></span><br><span class="line">hexo <span class="keyword">new</span> <span class="string">&quot;title&quot;</span></span><br></pre></td></tr></table></figure>
 <p>In addition, Hexo provides tag plugins: a useful way for you to quickly add specific content to your posts. For more information, visit <a target="_blank" rel="noopener" href="https://hexo.io/docs/tag-plugins">https://hexo.io/docs/tag-plugins</a>.</p>
-<h2 id="Themes"><a href="#Themes" class="headerlink" title="Themes"></a>Themes</h2><p>I recommend <a target="_blank" rel="noopener" href="https://github.com/iissnan/hexo-theme-next">hexo-theme-next</a> and <a target="_blank" rel="noopener" href="https://github.com/viosey/hexo-theme-material">hexo-theme-material</a>. Please read a short comparison of popular Hexo themes at <a target="_blank" rel="noopener" href="https://en.abnerchou.me/Blog/5c00ca67">https://en.abnerchou.me/Blog/5c00ca67</a>. For more themes, visit <a target="_blank" rel="noopener" href="https://hexo.io/themes/index.html">https://hexo.io/themes/index.html</a>.</p>
-<blockquote>
-<p>Tip: hexo-theme-next suggests us replacing <code>themes/next/_config.yml</code> of <code>source/_data/next.yml</code> (see <a target="_blank" rel="noopener" href="https://github.com/iissnan/hexo-theme-next#theme-configurations-using-hexo-data-files-328">hexo-theme-next #Theme configurations using Hexo data files</a>).</p>
-</blockquote>
+<h2 id="Themes"><a href="#Themes" class="headerlink" title="Themes"></a>Themes</h2><p>I recommend <a target="_blank" rel="noopener" href="https://github.com/next-theme/hexo-theme-next">hexo-theme-next</a> and <a target="_blank" rel="noopener" href="https://github.com/viosey/hexo-theme-material">hexo-theme-material</a>. Please read a short comparison of popular Hexo themes at <a target="_blank" rel="noopener" href="https://en.abnerchou.me/Blog/5c00ca67">https://en.abnerchou.me/Blog/5c00ca67</a>. For more themes, visit <a target="_blank" rel="noopener" href="https://hexo.io/themes/index.html">https://hexo.io/themes/index.html</a>.</p>
 <h2 id="Website-Optimization"><a href="#Website-Optimization" class="headerlink" title="Website Optimization"></a>Website Optimization</h2><p>A simple optimizing tool: <a target="_blank" rel="noopener" href="https://gulpjs.com/">Gulp</a>. Gulp is a toolkit for automating painful or time-consuming tasks in your development workflow.</p>
 <blockquote>
 <p>Tip: <a target="_blank" rel="noopener" href="https://github.com/chenzhutian/hexo-all-minifier">hexo-all-minifier</a> is a more convenient plugin, but maybe with more problems.</p>
@@ -308,7 +305,7 @@
 
 <p>SEO (Search Engine Optimization): it seems useless…</p>
 <blockquote>
-<p>Tip: You may want to use <a target="_blank" rel="noopener" href="https://github.com/rozbo/hexo-abbrlink">hexo-abbrlink</a>.to create one and only one link for every post.</p>
+<p>Tip: You may want to use <a target="_blank" rel="noopener" href="https://github.com/rozbo/hexo-abbrlink">hexo-abbrlink</a> to create one and only one link for every post.</p>
 </blockquote>
 <p>Other optimizations can’t be implemented without Web server (actually not, I just think we’d better wait for developers’ hard work).</p>
 <h2 id="Deployment"><a href="#Deployment" class="headerlink" title="Deployment"></a>Deployment</h2><p>Here are several hosting service providers, which should we choose?</p>
