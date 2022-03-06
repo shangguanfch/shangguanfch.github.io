@@ -28,12 +28,12 @@ hexo clean && hexo g && gulp build && hexo d
 - [ ] [ChangYan](https://changyan.kuaizhan.com/)
 
 ## Custom Settings
-- [ ] `scheme: Muse` in `hexo-site/source/_data/next.yml`
+- [ ] `scheme: Muse` in `hexo-site/_config.next.yml`
 - [ ] `scheme: Pisces`
 - [x] `scheme: Gemini`
 
 - [x] changes in `hexo-site/_config.yml`: `skip_render: README.md`, `permalink: :title/`
-- [x] changes in `hexo-site/source/_data/next.yml`: turn on `auto_excerpt`, turn on `post_copyright`
+- [x] changes in `hexo-site/_config.next.yml`: turn on `post_copyright`
 - [ ] changes in `hexo-site/themes/next/source/css/_costum/costum.styl`: round avatar
   ```
   # round avatar
@@ -56,7 +56,7 @@ hexo clean && hexo g && gulp build && hexo d
 
 - [x] local search: use [hexo-generator-search](https://github.com/PaicHyperionDev/hexo-generator-search)
 - [x] RSS: use [hexo-generator-feed](https://github.com/hexojs/hexo-generator-feed)
-- [x] install [hexo-wordcount](https://www.npmjs.com/package/hexo-wordcount), and turn on `post_wordcount` in `hexo-site/themes/next/_config.yml`. You may want to modify `hexo-site/themes/next/layout/_macro/post.swig`
+- [x] install [hexo-wordcount](https://www.npmjs.com/package/hexo-wordcount), and turn on `post_wordcount` in `hexo-site/_config.next.yml`. You may want to modify `hexo-site/themes/next/layout/_macro/post.swig`
 
 ## Website Optimization
 - [x] use [gulp](https://gulpjs.com/) to optimize: need `hexo-site/gulpfile.js`, if use my [gulpfile.js](https://github.com/shangguanfch/shangguanfch.github.io/blob/src/gulpfile.js), run `gulp build`.
@@ -81,7 +81,7 @@ hexo clean && hexo g && gulp build && hexo d
 - [ ] set different `per_page` in `hexo-site/_config.yml`, of index, archive and tags: see [NexT: 如何设置页面文章的篇数？](http://theme-next.iissnan.com/faqs.html#setting-page-size)
 - [ ] add [\<audio\>](http://www.w3school.com.cn/tags/tag_audio.asp) in `hexo-site/themes/next/layout/_custom/sidebar.swig`
 - [x] use [npm-run-script](https://docs.npmjs.com/cli/run-script) to save time
-- [x] replacing `hexo-site/themes/next/_config.yml` of `hexo-site/source/_data/next.yml`, see [hexo-theme-next #Theme configurations using Hexo data files](https://github.com/iissnan/hexo-theme-next#theme-configurations-using-hexo-data-files-328)
+- [x] use `hexo-site/_config.next.yml`
 
 - [ ] use [hexo-admin](https://github.com/jaredly/hexo-admin) to author posts locally
 - [ ] use python to encrypt the public blog files, see [cipher: Python3实现Hexo小助手](http://www.ciphermagic.cn/python-helper-4-hexo.html)
