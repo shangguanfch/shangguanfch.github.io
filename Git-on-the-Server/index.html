@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/uploads/favicon.webp">
+  <link rel="icon" type="image/png" sizes="32x32" href="/uploads/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/uploads/favicon.ico">
+  <link rel="mask-icon" href="/uploads/favicon.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic%7CSource+Code+Pro:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha256-xejo6yLi6vGtAjcMIsY8BHdKsLg7QynVlFMzdQgUuy8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"shangguanfch.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.12.3","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":true,"nav":null,"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Git on the Server, refer to https:&#x2F;&#x2F;www.qcloud.com&#x2F;developer&#x2F;labs&#x2F;lab&#x2F;10045 Server system: CentOS 7.2 x64">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Git on the Server">
+<meta property="og:url" content="https://shangguanfch.github.io/Git-on-the-Server/index.html">
+<meta property="og:site_name" content="ThanksForFun">
+<meta property="og:description" content="Git on the Server, refer to https:&#x2F;&#x2F;www.qcloud.com&#x2F;developer&#x2F;labs&#x2F;lab&#x2F;10045 Server system: CentOS 7.2 x64">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2017-08-01T11:24:21.000Z">
+<meta property="article:modified_time" content="2022-08-03T17:50:02.576Z">
+<meta property="article:author" content="ThanksForFun">
+<meta property="article:tag" content="record">
+<meta property="article:tag" content="vps">
+<meta property="article:tag" content="git">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://shangguanfch.github.io/Git-on-the-Server/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://shangguanfch.github.io/Git-on-the-Server/","path":"Git-on-the-Server/","title":"Git on the Server"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Git on the Server | ThanksForFun</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="ThanksForFun" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">ThanksForFun</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">The real fun, which even a good speaker can not tell, only knowing man know.</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-rss"><a href="/atom.xml" rel="section"><i class="fa fa-rss fa-fw"></i>RSS</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#requirements"><span class="nav-number">1.</span> <span class="nav-text">requirements</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#install-git"><span class="nav-number">2.</span> <span class="nav-text">install git</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#change-the-PATH-system-variable"><span class="nav-number">3.</span> <span class="nav-text">change the PATH system variable</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#create-git-user-and-set-password"><span class="nav-number">4.</span> <span class="nav-text">create git user and set password</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#init-git-repositores-and-set-user-rights"><span class="nav-number">5.</span> <span class="nav-text">init git repositores and set user rights</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#use-git-service"><span class="nav-number">6.</span> <span class="nav-text">use git service</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="ThanksForFun"
+      src="/uploads/avatar.webp">
+  <p class="site-author-name" itemprop="name">ThanksForFun</p>
+  <div class="site-description" itemprop="description">Search for the Real Fun</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/shangguanfch" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;shangguanfch" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:shangguanfch@gmail.com" title="E-Mail → mailto:shangguanfch@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/thanks_for_fun" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;thanks_for_fun" rel="noopener" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll site-overview-item animated">
+    <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://github.com/shangguanfch/shangguanfch.github.io/" title="https:&#x2F;&#x2F;github.com&#x2F;shangguanfch&#x2F;shangguanfch.github.io&#x2F;" rel="noopener" target="_blank">GitHub Site</a>
+        </li>
+    </ul>
+  </div>
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://shangguanfch.github.io/Git-on-the-Server/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.webp">
+      <meta itemprop="name" content="ThanksForFun">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ThanksForFun">
+      <meta itemprop="description" content="Search for the Real Fun">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Git on the Server | ThanksForFun">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Git on the Server
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2017-08-01 19:24:21" itemprop="dateCreated datePublished" datetime="2017-08-01T19:24:21+08:00">2017-08-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2022-08-04 01:50:02" itemprop="dateModified" datetime="2022-08-04T01:50:02+08:00">2022-08-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/record/" itemprop="url" rel="index"><span itemprop="name">record</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="Symbols count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Symbols count in article: </span>
+      <span>1.7k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>2 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>Git on the Server, refer to <a target="_blank" rel="noopener" href="https://www.qcloud.com/developer/labs/lab/10045">https://www.qcloud.com/developer/labs/lab/10045</a></p>
+<p>Server system: CentOS 7.2 x64</p>
+<span id="more"></span>
+
+<h2 id="requirements"><a href="#requirements" class="headerlink" title="requirements"></a>requirements</h2><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装依赖库</span></span><br><span class="line">yum <span class="keyword">install</span> curl-devel expat-devel gettext-devel openssl-devel zlib-devel</span><br><span class="line"><span class="comment"># 安装编译工具</span></span><br><span class="line">yum <span class="keyword">install</span> gcc perl-ExtUtils-MakeMaker</span><br></pre></td></tr></table></figure>
+<h2 id="install-git"><a href="#install-git" class="headerlink" title="install git"></a>install git</h2><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># choose a directory to store installation package</span></span><br><span class="line">cd <span class="regexp">/usr/</span>local/src</span><br><span class="line"></span><br><span class="line"><span class="comment"># download package (search for a stable installation package in https://www.kernel.org/pub/software/scm/git/)</span></span><br><span class="line">wget https:<span class="regexp">//</span>www.kernel.org<span class="regexp">/pub/</span>software<span class="regexp">/scm/gi</span>t/git-<span class="number">2.14</span>.<span class="number">1</span>.tar.xz</span><br><span class="line"><span class="comment"># unzip</span></span><br><span class="line">tar -zvxf git-<span class="number">2.14</span>.<span class="number">1</span>.tar.gz</span><br><span class="line"><span class="comment"># go to git directory</span></span><br><span class="line">cd git-<span class="number">2.14</span>.<span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># compile</span></span><br><span class="line">make all prefix=<span class="regexp">/usr/</span>local/git</span><br><span class="line"><span class="comment"># install to /usr/local/git </span></span><br><span class="line">make install prefix=<span class="regexp">/usr/</span>local/git</span><br></pre></td></tr></table></figure>
+
+<h2 id="change-the-PATH-system-variable"><a href="#change-the-PATH-system-variable" class="headerlink" title="change the PATH system variable"></a>change the PATH system variable</h2><p>将 git 目录加入 PATH</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 将原来的 PATH 指向目录修改为现在的目录</span></span><br><span class="line">echo <span class="string">&#x27;export PATH=$PATH:/usr/local/git/bin&#x27;</span> &gt;&gt; <span class="regexp">/etc/</span>bashrc</span><br><span class="line"><span class="comment"># execute</span></span><br><span class="line">source <span class="regexp">/etc/</span>bashrc</span><br><span class="line"><span class="comment"># print git version</span></span><br><span class="line">git --version</span><br></pre></td></tr></table></figure>
+
+<h2 id="create-git-user-and-set-password"><a href="#create-git-user-and-set-password" class="headerlink" title="create git user and set password"></a>create git user and set password</h2><figure class="highlight n1ql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># <span class="keyword">create</span> a git <span class="keyword">user</span> account</span><br><span class="line">useradd -m gituser</span><br><span class="line"># <span class="keyword">set</span> <span class="keyword">password</span></span><br><span class="line">passwd gituser</span><br></pre></td></tr></table></figure>
+
+<h2 id="init-git-repositores-and-set-user-rights"><a href="#init-git-repositores-and-set-user-rights" class="headerlink" title="init git repositores and set user rights"></a>init git repositores and set user rights</h2><p>创建 git 仓库并初始化</p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"># 创建 <span class="regexp">/data/</span><span class="keyword">repositories</span> 目录用于存放 git 仓库</span><br><span class="line">mkdir -p <span class="regexp">/data/</span><span class="keyword">repositories</span></span><br><span class="line"></span><br><span class="line"># init</span><br><span class="line">cd <span class="regexp">/data/</span><span class="keyword">repositories</span></span><br><span class="line">git init --bare test.git</span><br><span class="line"></span><br><span class="line"># set up user access <span class="keyword">for</span> git repository</span><br><span class="line">chown -R gituser:gituser <span class="regexp">/data/</span><span class="keyword">repositories</span></span><br><span class="line">chmod <span class="number">755</span> <span class="regexp">/data/</span><span class="keyword">repositories</span></span><br><span class="line"># 查找 git-shell 所在目录，edit <span class="regexp">/etc/</span>passwd <span class="keyword">file</span>，the last line should be changed as follows</span><br><span class="line">gituser:x:<span class="number">500</span>:<span class="number">500</span>::<span class="regexp">/home/gi</span>tuser:<span class="regexp">/usr/</span>local<span class="regexp">/git/</span>bin/git-shell</span><br></pre></td></tr></table></figure>
+<p>If follow the steps above, the location will be &#x2F;usr&#x2F;local&#x2F;git&#x2F;bin&#x2F;git-shell, use <code>which git-shell</code> command to check the location</p>
+<p>安全目的, 限制 git 账号的 ssh 连接只能是登录 git-shell</p>
+<h2 id="use-git-service"><a href="#use-git-service" class="headerlink" title="use git service"></a>use git service</h2><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 克隆 test repo 到本地</span></span><br><span class="line">cd ~</span><br><span class="line">git clone gituser@&lt;your <span class="title class_">CVM</span> <span class="title class_">IP</span> address&gt;<span class="symbol">:/data/repositories/test</span>.git</span><br></pre></td></tr></table></figure>
+
+<p>恭喜，Git 服务器搭建完成</p>
+<p>Further reading: <a target="_blank" rel="noopener" href="https://git-scm.com/book/en/v2/Git-on-the-Server-The-Protocols">https://git-scm.com/book/en/v2/Git-on-the-Server-The-Protocols</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>Post author:  </strong>ThanksForFun
+  </li>
+  <li class="post-copyright-link">
+      <strong>Post link: </strong>
+      <a href="https://shangguanfch.github.io/Git-on-the-Server/" title="Git on the Server">https://shangguanfch.github.io/Git-on-the-Server/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/en" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/record/" rel="tag"># record</a>
+              <a href="/tags/vps/" rel="tag"># vps</a>
+              <a href="/tags/git/" rel="tag"># git</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/About-Domain/" rel="prev" title="About Domain">
+                  <i class="fa fa-chevron-left"></i> About Domain
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/Across-the-Great-Firewall/" rel="next" title="Across the Great Wall">
+                  Across the Great Wall <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2017 – 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ThanksForFun</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="Symbols count total">44k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="Reading time total">40 mins.</span>
+  </span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.7.2/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"shangguanfch","repo":"shangguanfch.github.io","client_id":"93994490c0f4071df36a","client_secret":"5aed5cf7c45488f8679c4319b286ad9cb63d8b36","admin_user":"shangguanfch","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":null,"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.7.2/gitalk.min.js","integrity":"sha256-Pmj85ojLaPOWwRtlMJwmezB/Qg8BzvJp5eTzvXaYAfA="},"path_md5":"ef409963b11ba7875bae99c13a2d41b3"}</script>
+<script src="/js/third-party/comments/gitalk.js"></script>
+
+</body>
+</html>

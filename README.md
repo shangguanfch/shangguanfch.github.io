@@ -14,6 +14,7 @@ hexo clean && hexo g && gulp build && hexo d
 - [x] hosted by [GitHub Pages](https://pages.github.com/)
 - [ ] hosted by [GitLab Pages](https://about.gitlab.com/features/pages/)
 - [ ] hosted by [码云 Pages](http://git.mydoc.io/?t=180861)
+- [ ] hosted by Coding Pages. Now coding replace Coding Pages of [持续集成：自建静态网站](https://help.coding.net/docs/devops/ci/practice/static-website-paas.html)
 - [ ] hosted by [Heroku](https://www.heroku.com/)
 - [ ] hosted by [Firebase](https://firebase.google.com/)
 - [ ] hosted by [Netlify](https://www.netlify.com/)
