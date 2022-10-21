@@ -35,16 +35,8 @@ hexo clean && hexo g && gulp build && hexo d
 
 - [x] changes in `hexo-site/_config.yml`: `skip_render: README.md`, `permalink: :title/`
 - [x] changes in `hexo-site/_config.next.yml`: turn on `post_copyright`
-- [ ] changes in `hexo-site/themes/next/source/css/_costum/costum.styl`: round avatar
-  ```
-  # round avatar
-  .site-author-image {
-  border-radius: 80px;
-  -webkit-border-radius: 80px;
-  -moz-border-radius: 80px;
-  }
-  ```
-- [x] change default fonts: see [NexT: 设置字体](http://theme-next.iissnan.com/theme-settings.html#fonts-customization). I use `Helvetica`for posts, `Source Code Pro` for codes.
+
+- [x] change default fonts: see [Misc Theme Settings#Fonts Customization](https://theme-next.js.org/docs/theme-settings/miscellaneous.html#Fonts-Customization). I use `Lato`for posts, `Source Code Pro` for codes.
   > Tip: ~`//fonts.useso.com` is invalid and `//cdn.baomitu.com` is valid, see [网站卫士前端公共库停止运行公告](http://wangzhan.360.com/notice/detail4), [360 前端公共库 CDN 服务重新启动](http://wangzhan.360.com/notice/detail/10005)
   See also: 
   [Google 字体库的国内服务器在北京和上海](https://www.zhihu.com/question/24955477/answer/120232550)
@@ -52,15 +44,15 @@ hexo clean && hexo g && gulp build && hexo d
 
 - [x] `hexo new page categories`, `hexo new page tags`, `hexo new page about`
 - [x] `hexo new page links`
-- [x] set the page type to display tag cloud, see [NexT: 添加「标签」页面](http://theme-next.iissnan.com/theme-settings.html#tags-page)
 - [x] `comments: false` in [front-matter](https://hexo.io/docs/front-matter.html) of `hexo-site/source/categories/index.md` and `hexo-site/source/tags/index.md`
+- [ ] set tag cloud, see [Custom Pages#Tagcloud](https://theme-next.js.org/docs/theme-settings/custom-pages.html#Tagcloud)
 
-- [x] local search: use [hexo-generator-search](https://github.com/PaicHyperionDev/hexo-generator-search)
-- [x] RSS: use [hexo-generator-feed](https://github.com/hexojs/hexo-generator-feed)
-- [x] install [hexo-wordcount](https://www.npmjs.com/package/hexo-wordcount), and turn on `post_wordcount` in `hexo-site/_config.next.yml`. You may want to modify `hexo-site/themes/next/layout/_macro/post.swig`
+- [x] set local search: see [Search Services#Local Search](https://theme-next.js.org/docs/third-party-services/search-services.html#Local-Search)
+- [x] RSS in sidebar
+- [x] enable [Post Settings#Post Wordcount](https://theme-next.js.org/docs/theme-settings/posts.html#Post-Wordcount)
 
 ## Website Optimization
-- [x] use [gulp](https://gulpjs.com/) to optimize: need `hexo-site/gulpfile.js`, if use my [gulpfile.js](https://github.com/shangguanfch/shangguanfch.github.io/blob/src/gulpfile.js), run `gulp build`.
+- [ ] use [gulp](https://gulpjs.com/) to optimize: need `hexo-site/gulpfile.js`, if use my [gulpfile.js](https://github.com/shangguanfch/shangguanfch.github.io/blob/src/gulpfile.js), run `gulp build`.
   ```bash
   npm install --global gulp
   npm install --save-dev gulp gulp-uglify gulp-clean-css gulp-htmlmin gulp-htmlclean gulp-imagemin gulp-concat
@@ -88,4 +80,4 @@ hexo clean && hexo g && gulp build && hexo d
 - [ ] use python to encrypt the public blog files, see [cipher: Python3实现Hexo小助手](http://www.ciphermagic.cn/python-helper-4-hexo.html)
 - [ ] use [阿里巴巴矢量图标库](http://www.iconfont.cn/) to expand icon number: see [aak1247: 如何使hexo显得自己更有逼格（三）——自定义与优化](https://aak1247.github.io/2017/01/22/hexo-next-3/)
 
-- [ ] remain to be done: baidushare or sharesdk, learncloud, sitemap or baidusitemap, baidu_analytics or google_analytics or tencent_analytics or busuanzi_count, fork me on GitHub...
+- [ ] something to be done: baidushare or sharesdk, learncloud, sitemap or baidusitemap, baidu_analytics or google_analytics or tencent_analytics or busuanzi_count, fork me on GitHub...
