@@ -20,19 +20,18 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"shangguanfch.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.13.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":true,"nav":null,"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="An introduction to use Visual Studio Code (VSC).">
+    <meta name="description" content="An introduction to use Visual Studio Code (VSC). Reference: 《Visual Studio Code权威指南》.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Use Visual Studio Code">
 <meta property="og:url" content="https://shangguanfch.github.io/Use-Visual-Studio-Code/index.html">
 <meta property="og:site_name" content="ThanksForFun">
-<meta property="og:description" content="An introduction to use Visual Studio Code (VSC).">
+<meta property="og:description" content="An introduction to use Visual Studio Code (VSC). Reference: 《Visual Studio Code权威指南》.">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-09-20T15:26:19.000Z">
-<meta property="article:modified_time" content="2022-10-21T09:00:01.374Z">
+<meta property="article:modified_time" content="2022-11-30T13:39:13.213Z">
 <meta property="article:author" content="ThanksForFun">
 <meta property="article:tag" content="record">
 <meta property="article:tag" content="editor">
-<meta property="article:tag" content="vsc">
 <meta name="twitter:card" content="summary">
 
 
@@ -147,7 +146,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Installation"><span class="nav-number">1.</span> <span class="nav-text">Installation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Extensions"><span class="nav-number">2.</span> <span class="nav-text">Extensions</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Settings-Sync"><span class="nav-number">2.1.</span> <span class="nav-text">Settings Sync</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Material-Icon-Theme"><span class="nav-number">2.2.</span> <span class="nav-text">Material Icon Theme</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Background"><span class="nav-number">2.3.</span> <span class="nav-text">Background</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Markdown-Preview-Enhanced"><span class="nav-number">2.4.</span> <span class="nav-text">Markdown Preview Enhanced</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Build-C-x2F-C-Environment"><span class="nav-number">3.</span> <span class="nav-text">Build C&#x2F;C++ Environment</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Installation"><span class="nav-number">1.</span> <span class="nav-text">Installation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Custom-Settings"><span class="nav-number">2.</span> <span class="nav-text">Custom Settings</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Extensions"><span class="nav-number">3.</span> <span class="nav-text">Extensions</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Settings-Sync"><span class="nav-number">3.1.</span> <span class="nav-text">Settings Sync</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Material-Theme"><span class="nav-number">3.2.</span> <span class="nav-text">Material Theme</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Background"><span class="nav-number">3.3.</span> <span class="nav-text">Background</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Markdown-Preview-Enhanced"><span class="nav-number">3.4.</span> <span class="nav-text">Markdown Preview Enhanced</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Marp-for-VS-Code"><span class="nav-number">3.5.</span> <span class="nav-text">Marp for VS Code</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Code-Runner"><span class="nav-number">3.6.</span> <span class="nav-text">Code Runner</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Build-C-x2F-C-Environment"><span class="nav-number">4.</span> <span class="nav-text">Build C&#x2F;C++ Environment</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -162,7 +161,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-count">11</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -173,7 +172,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-count">17</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -269,7 +268,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2022-10-21 17:00:01" itemprop="dateModified" datetime="2022-10-21T17:00:01+08:00">2022-10-21</time>
+      <time title="Modified: 2022-11-30 21:39:13" itemprop="dateModified" datetime="2022-11-30T21:39:13+08:00">2022-11-30</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -288,7 +287,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Symbols count in article: </span>
-      <span>1.7k</span>
+      <span>2.5k</span>
     </span>
     <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
@@ -307,20 +306,28 @@
     
     <div class="post-body" itemprop="articleBody">
         <p>An introduction to use Visual Studio Code (VSC).</p>
+<p>Reference: 《Visual Studio Code权威指南》.</p>
 <span id="more"></span>
 
-<h2 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h2><p>Download VSC from the official website of VSC <a target="_blank" rel="noopener" href="https://code.visualstudio.com/">https://code.visualstudio.com</a>.</p>
+<h2 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h2><p>Download VSC from the <a target="_blank" rel="noopener" href="https://code.visualstudio.com/">official website of VSC</a>.</p>
+<h2 id="Custom-Settings"><a href="#Custom-Settings" class="headerlink" title="Custom Settings"></a>Custom Settings</h2><p><a target="_blank" rel="noopener" href="https://github.com/tonsky/FiraCode">Fira Code</a> is a free monospaced font with programming ligatures. For more information, visit <a target="_blank" rel="noopener" href="https://github.com/tonsky/FiraCode/wiki/VS-Code-Instructions">https://github.com/tonsky/FiraCode/wiki/VS-Code-Instructions</a>.</p>
 <h2 id="Extensions"><a href="#Extensions" class="headerlink" title="Extensions"></a>Extensions</h2><h3 id="Settings-Sync"><a href="#Settings-Sync" class="headerlink" title="Settings Sync"></a>Settings Sync</h3><p>Outdated. It is integrated to VSC. See <a target="_blank" rel="noopener" href="https://code.visualstudio.com/docs/editor/settings-sync">https://code.visualstudio.com/docs/editor/settings-sync</a>.</p>
-<h3 id="Material-Icon-Theme"><a href="#Material-Icon-Theme" class="headerlink" title="Material Icon Theme"></a>Material Icon Theme</h3><h3 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h3><h3 id="Markdown-Preview-Enhanced"><a href="#Markdown-Preview-Enhanced" class="headerlink" title="Markdown Preview Enhanced"></a>Markdown Preview Enhanced</h3><p><a target="_blank" rel="noopener" href="https://github.com/shd101wyy/markdown-preview-enhanced">Markdown Preview Enhanced</a> is an extension to write markdown files on VSC. <kbd>ctrl+k, ctrl+v</kbd> to see preview.</p>
+<h3 id="Material-Theme"><a href="#Material-Theme" class="headerlink" title="Material Theme"></a>Material Theme</h3><p><a target="_blank" rel="noopener" href="https://marketplace.visualstudio.com/items?itemName=Equinusocio.vsc-material-theme">Material Theme</a> is the official material theme for VSC, while <a target="_blank" rel="noopener" href="https://marketplace.visualstudio.com/items?itemName=Equinusocio.vsc-community-material-theme">Community Material Theme</a> is a theme maintained by the community with ‘legacy’ color schemes. <a target="_blank" rel="noopener" href="https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme">Material Icon Theme</a>, which provides Material Design Icons for VSC, has far more installers than <a target="_blank" rel="noopener" href="https://marketplace.visualstudio.com/items?itemName=Equinusocio.vsc-material-theme-icons">Material Theme Icons</a>. according to my use, it is also faster.</p>
+<h3 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h3><h3 id="Markdown-Preview-Enhanced"><a href="#Markdown-Preview-Enhanced" class="headerlink" title="Markdown Preview Enhanced"></a>Markdown Preview Enhanced</h3><p><a target="_blank" rel="noopener" href="https://github.com/shd101wyy/markdown-preview-enhanced">Markdown Preview Enhanced</a> is an extension to write <code>md.</code> files on VSC. <kbd>ctrl+k, ctrl+v</kbd> to see the preview. Visit <a target="_blank" rel="noopener" href="https://shd101wyy.github.io/markdown-preview-enhanced/">its official website</a> to realize more information.</p>
+<h3 id="Marp-for-VS-Code"><a href="#Marp-for-VS-Code" class="headerlink" title="Marp for VS Code"></a>Marp for VS Code</h3><p><a target="_blank" rel="noopener" href="https://github.com/marp-team/marp-vscode">Marp for VS Code</a> is a useful extension for making slides in markdown. It can transform md to html, pdf and pptx.</p>
+<p><kbd>ctrl+alt+win+n</kbd> (Windows) to start writing a slide deck quickly.</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">marp:</span> <span class="literal">true</span></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="comment"># Your slide deck</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Code-Runner"><a href="#Code-Runner" class="headerlink" title="Code Runner"></a>Code Runner</h3><p><a target="_blank" rel="noopener" href="https://marketplace.visualstudio.com/items?itemName=formulahendry.code-runner">Code Runner</a> is a easy way to run code snippet or code file for multiple languages: C, C++, Java, JavaScript, PHP, Python, and so on.</p>
 <h2 id="Build-C-x2F-C-Environment"><a href="#Build-C-x2F-C-Environment" class="headerlink" title="Build C&#x2F;C++ Environment"></a>Build C&#x2F;C++ Environment</h2><p>This chapter introduces how to build a C&#x2F;C++ environment on VSC on Windows.</p>
 <p>Steps:</p>
 <ol>
-<li>Download C&#x2F;C++ Extension. Open VSC, click Extensions (扩展), or use hotkey <kbd>ctrl+shift+x</kbd>. Search C&#x2F;C++ and download it. To use Simplified Chinese UI, you can install Chinese (Simplified) (简体中文) Language Pack for Visual Studio Code. And Code Runner is a easy way to compile and run code.</li>
+<li>Download C&#x2F;C++ Extension. Open VSC, click Extensions (扩展), or use shortcut <kbd>ctrl+shift+x</kbd>. Search C&#x2F;C++ and download it. To use Simplified Chinese UI, you can install Chinese (Simplified) (简体中文) Language Pack for Visual Studio Code.</li>
 <li>Install MinGW-w64. Install it from <a target="_blank" rel="noopener" href="https://www.mingw-w64.org/downloads/">the official website of MinGW-w64</a>, or <a target="_blank" rel="noopener" href="https://sourceforge.net/projects/mingw-w64/files/">its sourceforge page</a>. Notice: don’t install <a target="_blank" rel="noopener" href="https://sourceforge.net/projects/mingw/">MinGW</a>.</li>
 <li>Change environment virable. If you use win10 or win11, search “env” (环境变量), click <code>Edit the System Environment Variables</code> (编辑系统环境变量), click <code>Advanced</code> (高级) -&gt; <code>Environment Virables...</code> (环境变量), click <code>Path</code> (路径), click <code>new</code>, add the path <code>C:\MInGW\bin\</code> (change it accroding to your path). Run <code>gcc -v</code> on cmd to know whether you are successful.</li>
 <li>Create a C&#x2F;C++ file. e.g., <code>main.cpp</code>, write some words in it, an example: <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    cout&lt;&lt;<span class="string">&quot;hello world&quot;</span>&lt;&lt;endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li>Create tasks.json. Click <code>Terminal</code> (终端) -&gt; <code>Configure Tasks...</code>, click <code>g++.exe</code>. Now, select <code>main.cpp</code>, click <code>Terminal</code> -&gt; <code>Run Task</code>, click <code>C/C++: g++.exe build active file</code>. Then a internal terminal will open to show the build result. If successfully, it will create <code>main.exe</code>.</li>
-<li>Create lauch.json. Click <code>Run</code> (运行) -&gt; <code>Add Configuration...</code>.</li>
+<li>Create <code>tasks.json</code>. Click <code>Terminal</code> (终端) -&gt; <code>Configure Tasks...</code>, click <code>g++.exe</code>. Now, select <code>main.cpp</code>, click <code>Terminal</code> -&gt; <code>Run Task</code>, click <code>C/C++: g++.exe build active file</code>. Then a internal terminal will open to show the build result. If successfully, it will create <code>main.exe</code>.</li>
+<li>Create <code>lauch.json</code>. Click <code>Run</code> (运行) -&gt; <code>Add Configuration...</code>.</li>
 <li>Now, <kbd>F5</kbd> can start debugging.</li>
 </ol>
 <p>Further reading:</p>
@@ -356,7 +363,6 @@
           <div class="post-tags">
               <a href="/tags/record/" rel="tag"># record</a>
               <a href="/tags/editor/" rel="tag"># editor</a>
-              <a href="/tags/vsc/" rel="tag"># vsc</a>
           </div>
 
         
@@ -400,16 +406,19 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="Symbols count total">43k</span>
+    <span title="Symbols count total">40k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">39 mins.</span>
+    <span title="Reading time total">37 mins.</span>
   </span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+  <div class="addthis_inline_share_toolbox">
+    <script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-63875a1b6e59dee6" async="async"></script>
   </div>
 
     </div>

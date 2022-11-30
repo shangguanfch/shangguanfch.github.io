@@ -323,6 +323,7 @@
 <p><strong>There is some necessary steps for Chinese users.</strong></p>
 <p>Edit <code>/etc/pacman.conf</code>, add repo [archlinuxcn] to <code>/etc/pacman.conf</code>.</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># /etc/pacman.conf</span><br><span class="line">[archlinuxcn]</span><br><span class="line">SigLevel = Optional TrustedOnly</span><br><span class="line">Server = https://cdn.repo.archlinuxcn.org/$arch</span><br></pre></td></tr></table></figure>
+
 <p>then add PGP keys</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo pacman -Syy &amp;&amp; sudo pacman -S archlinuxcn-keyring</span><br></pre></td></tr></table></figure>
 
@@ -340,25 +341,25 @@
 <p>If you want to create your own custom gestures, edit ~&#x2F;.config&#x2F;libinput-gestures.conf. Here is an example.</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># ~/.config/libinput-gestures.conf</span><br><span class="line">gesture pinch in 2 xdotool key ctrl+minus       # 2指捏: 缩小</span><br><span class="line">gesture pinch out 2 xdotool key ctrl+plus       # 2指张: 放大</span><br><span class="line"></span><br><span class="line">gesture swipe left 3 xdotool key shift+alt+Tab  # 3指左划: 切换窗口</span><br><span class="line">gesture swipe right 3 xdotool key alt+Tab       # 3指右划:逆向切换窗口</span><br><span class="line">gesture swipe down 3 xdotool key ctrl+alt+F12   # 3指下划显示桌面</span><br><span class="line"></span><br><span class="line">gesture swipe left 4 xdotool key ctrl+alt+Right # 4指左划: 切换到左侧工作区</span><br><span class="line">gesture swipe right 4 xdotool key ctrl+alt+Left # 4指右划: 切换到右侧工作区</span><br></pre></td></tr></table></figure>
 
-<p>Then start libinput-gestures. (however it’s not neccessary, pacman help you do these)</p>
+<p>Then start libinput-gestures. (however, it’s not neccessary, pacman help you do these)</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">libinput-gestures-setup start</span><br><span class="line">libinput-gestures-setup autostart</span><br></pre></td></tr></table></figure>
 
 <h2 id="Recommended-Projects"><a href="#Recommended-Projects" class="headerlink" title="Recommended Projects"></a>Recommended Projects</h2><p>Arch Wiki: <a href="https://wiki.archlinux.org/index.php/General_recommendations">https://wiki.archlinux.org/index.php/General_recommendations</a></p>
 <h3 id="Oh-My-Zsh"><a href="#Oh-My-Zsh" class="headerlink" title="Oh My Zsh"></a><a href="http://ohmyz.sh/">Oh My Zsh</a></h3><p>Oh My Zsh is a delightful community-driven framework for managing your zsh configuration.</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># install Zsh (however Manjaro pre-install Zsh)</span><br><span class="line">sudo pacman -S zsh</span><br><span class="line"># install git (if not pre-installed)</span><br><span class="line">sudo pacman -S git</span><br><span class="line"></span><br><span class="line"># install Oh My Zsh via curl</span><br><span class="line">sh -c &quot;$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)&quot;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># install Zsh (Manjaro pre-install Zsh)</span><br><span class="line">sudo pacman -S zsh</span><br><span class="line"># install git (if not pre-installed)</span><br><span class="line">sudo pacman -S git</span><br><span class="line"></span><br><span class="line"># install Oh My Zsh via curl</span><br><span class="line">sh -c &quot;$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)&quot;</span><br></pre></td></tr></table></figure>
 
 <p>Further reading: <a href="https://github.com/robbyrussell/oh-my-zsh/wiki/">https://github.com/robbyrussell/oh-my-zsh/wiki/</a></p>
-<p>Plugin archlinux and plugin git is useful. They are worth learning, save much time. More plugin are waiting for your discovering.</p>
+<p>Plugin archlinux and plugin git is useful. They are worth learning, and save much time. More plugins are waiting for your discovering.</p>
 <ul>
 <li><a href="https://github.com/robbyrussell/oh-my-zsh/tree/master/plugins/archlinux">https://github.com/robbyrussell/oh-my-zsh/tree/master/plugins/archlinux</a></li>
 <li><a href="https://github.com/robbyrussell/oh-my-zsh/tree/master/plugins/git">https://github.com/robbyrussell/oh-my-zsh/tree/master/plugins/git</a></li>
 </ul>
-<figure class="highlight ini"><table><tr><td class="code"><pre><span class="line"><span class="comment"># .zshrc</span></span><br><span class="line"><span class="attr">plugins</span>=(git archlinux)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># .zshrc</span><br><span class="line">plugins=(git archlinux)</span><br></pre></td></tr></table></figure>
 
 <p>I prefer zsh-theme af-magic.</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ ~/.zshrc</span><br><span class="line">ZSH_THEME=&quot;af-magic&quot;</span><br></pre></td></tr></table></figure>
 
-<h3 id="Input-Method"><a href="#Input-Method" class="headerlink" title="Input Method"></a>Input Method</h3><ul>
+<h3 id="Input-Method-IME"><a href="#Input-Method-IME" class="headerlink" title="Input Method (IME)"></a>Input Method (IME)</h3><ul>
 <li><a href="http://pinyin.sogou.com/linux/">Sogoupinyin</a>, a input method for linux, supports Jianpin, fuzzy syllables, cloud input, English input, mixed skin.</li>
 <li><a href="http://rime.im/">Rime</a>, based on schemas from the Rime IME project.</li>
 <li><a href="https://www.google.com/intl/zh-CN/ime/pinyin/index.html">Googlepinyin</a>, the Google pinyin IME for Android.</li>
@@ -366,7 +367,7 @@
 <p>Arch Wiki: <a href="https://wiki.archlinux.org/index.php/Fcitx">https://wiki.archlinux.org/index.php/Fcitx</a></p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># install sogoupinyin</span><br><span class="line">sudo pacman -S fcitx-sogoupinyin</span><br><span class="line"></span><br><span class="line"># or you may prefer Rime</span><br><span class="line">sudo pacman -S fcitx-rime</span><br><span class="line"></span><br><span class="line"># or you may prefer Googlepinyin</span><br><span class="line">sudo pacman -S fcitx-googlepinyin</span><br><span class="line"></span><br><span class="line">sudo pacman -S fcitx-im # input method module</span><br><span class="line">sudo pacman -S fcitx-configtool # GUI configure tools</span><br></pre></td></tr></table></figure>
 
-<p>Type <code>fcitx</code> to see whether fcitx is working correctly, if success, use shortcut <kbd>ctrl-space</kbd> to see what happened.</p>
+<p>Type <code>fcitx</code> to see whether fcitx is working correctly, if success, use shortcut <kbd>ctrl+space</kbd> to see what happened.</p>
 <p>If failed, add the following lines to your desktop start up script files to register the input method modules and support xim programs.</p>
 <ul>
 <li>Use <code>.xprofile</code> if you are using GDM, LightDM or SDDM with Xorg.</li>
@@ -375,7 +376,7 @@
 </ul>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">export GTK_IM_MODULE=fcitx</span><br><span class="line">export QT_IM_MODULE=fcitx</span><br><span class="line">export XMODIFIERS=@im=fcitx</span><br></pre></td></tr></table></figure>
 
-<h3 id="Source-Code-Pro"><a href="#Source-Code-Pro" class="headerlink" title="Source Code Pro"></a><a href="https://adobe-fonts.github.io/source-code-pro/">Source Code Pro</a></h3><p>Source Code Pro is monospaced font family for user interface and coding environments.</p>
+<h3 id="Source-Code-Pro"><a href="#Source-Code-Pro" class="headerlink" title="Source Code Pro"></a><a href="https://adobe-fonts.github.io/source-code-pro/">Source Code Pro</a></h3><p>Source Code Pro is a monospaced font family for user interface and coding environments.</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo pacman -S adobe-source-code-pro-fonts</span><br></pre></td></tr></table></figure>
 
 <h3 id="TLP"><a href="#TLP" class="headerlink" title="TLP"></a><a href="http://linrunner.de/en/tlp/tlp.html">TLP</a></h3><p>TLP brings you the benefits of advanced power management for Linux without the need to understand every technical detail. TLP comes with a default configuration already optimized for battery life, so you may just install and forget it.</p>
@@ -388,6 +389,7 @@
 <p>Further reading: <a href="https://github.com/archlinuxfr/yaourt">https://github.com/archlinuxfr/yaourt</a></p>
 <h3 id="Shadowsocks-Qt5"><a href="#Shadowsocks-Qt5" class="headerlink" title="Shadowsocks-Qt5"></a><a href="https://github.com/shadowsocks/shadowsocks-qt5">Shadowsocks-Qt5</a></h3><p>Shadowsocks-Qt5 is a native and cross-platform shadowsocks GUI client with advanced features.</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo pacman -S shadowsocks-qt5</span><br></pre></td></tr></table></figure>
+
 <h3 id="Shadowsocks-libev"><a href="#Shadowsocks-libev" class="headerlink" title="Shadowsocks-libev"></a><a href="https://github.com/shadowsocks/shadowsocks-libev">Shadowsocks-libev</a></h3><p>Shadowsocks-libev is a lightweight secured SOCKS5 proxy for embedded devices and low-end boxes.</p>
 <p>Arch Wiki: <a href="https://wiki.archlinux.org/index.php/Shadowsocks">https://wiki.archlinux.org/index.php/Shadowsocks</a></p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo pacman -S shadowsocks-libev</span><br></pre></td></tr></table></figure>
@@ -447,7 +449,7 @@
 </li>
 <li><p>About screenshot: <a href="https://wiki.archlinux.org/index.php/Taking_a_screenshot">https://wiki.archlinux.org/index.php/Taking_a_screenshot</a></p>
 </li>
-<li><p>About Virtual Box: <a href="https://www.virtualbox.org/">https://www.virtualbox.org/</a></p>
+<li><p>Virtual Box: <a href="https://www.virtualbox.org/">https://www.virtualbox.org/</a></p>
 </li>
 <li><p>About backup: <a href="http://www.cnblogs.com/yychi/p/5860027.html">http://www.cnblogs.com/yychi/p/5860027.html</a></p>
 </li>
@@ -486,6 +488,7 @@
 <p>Or a more convenient way: use neoFelhz’s <a href="https://github.com/neoFelhz/HexoKit" title="https://github.com/neoFelhz/HexoKit">HexoKit</a>.</p>
 <h2 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h2><p>For more information, visit <a href="https://hexo.io/docs/commands.html">https://hexo.io/docs/commands.html</a>.</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># in hexo-site</span><br><span class="line"># start a local server, by default, Hexo is running at http://localhost:4000/</span><br><span class="line">hexo s</span><br><span class="line"></span><br><span class="line"># clean the cache file (db.json)</span><br><span class="line">hexo clean</span><br><span class="line"></span><br><span class="line"># generate static files (/public)</span><br><span class="line">hexo g</span><br><span class="line"></span><br><span class="line"># deploy website</span><br><span class="line">hexo d</span><br><span class="line"></span><br><span class="line"># create new article in source/_posts</span><br><span class="line">hexo new &quot;title&quot;</span><br></pre></td></tr></table></figure>
+
 <p>In addition, Hexo provides tag plugins: a useful way for you to quickly add specific content to your posts. For more information, visit <a href="https://hexo.io/docs/tag-plugins">https://hexo.io/docs/tag-plugins</a>.</p>
 <h2 id="Themes"><a href="#Themes" class="headerlink" title="Themes"></a>Themes</h2><p>I recommend <a href="https://github.com/next-theme/hexo-theme-next">hexo-theme-next</a> <del>and <a href="https://github.com/viosey/hexo-theme-material">hexo-theme-material</a></del>. You could read a short comparison of popular Hexo themes at <a href="https://en.abnerchou.me/Blog/5c00ca67">https://en.abnerchou.me/Blog/5c00ca67</a>. For more themes, visit <a href="https://hexo.io/themes/index.html">https://hexo.io/themes/index.html</a>.</p>
 <h2 id="Website-Optimization"><a href="#Website-Optimization" class="headerlink" title="Website Optimization"></a>Website Optimization</h2><p>A simple optimizing tool: <a href="https://gulpjs.com/">Gulp</a>. Gulp is a toolkit for automating painful or time-consuming tasks in your development workflow.</p>
@@ -493,35 +496,26 @@
 <p>Tip: <a href="https://github.com/chenzhutian/hexo-all-minifier">hexo-all-minifier</a> is a more convenient plugin, but maybe with more problems.</p>
 </blockquote>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># install Gulp globally</span><br><span class="line">npm install gulp-cli --location=global</span><br><span class="line"></span><br><span class="line"># in hexo-site, install some relative plugins locally</span><br><span class="line">npm install gulp gulp-uglify gulp-clean-css gulp-htmlmin gulp-htmlclean gulp-imagemin gulp-concat –-save-dev</span><br></pre></td></tr></table></figure>
-<p><code>gulpfiles.js</code> should be in the root of hexo-site (like <a href="https://github.com/agragregra/OptimizedHTML-5/blob/master/gulpfile.js">his gulpfile.js</a>).<br>Then the following command (if use his gulpfiles.js) will optimize your generated files.</p>
+<p><code>gulpfiles.js</code> should be in the root of hexo-site (like <a href="https://github.com/agragregra/OptimizedHTML-5/blob/master/gulpfile.js">his gulpfile.js</a>). Then the following command (if use his gulpfiles.js) will optimize your generated files.</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">gulp build</span><br></pre></td></tr></table></figure>
 
-<p>SEO (Search Engine Optimization): to be done.</p>
-<p>Other optimizations: to be done.</p>
+<p>Other optimizations such as SEO (Search Engine Optimization): to be done.</p>
 <blockquote>
 <p>Tip: You may want to use <a href="https://github.com/rozbo/hexo-abbrlink">hexo-abbrlink</a> to create one and only one link for every post.</p>
 </blockquote>
 <h2 id="Deployment"><a href="#Deployment" class="headerlink" title="Deployment"></a>Deployment</h2><p>Here are several hosting service providers.</p>
-<h3 id="GitHub-Pages"><a href="#GitHub-Pages" class="headerlink" title="GitHub Pages"></a>GitHub Pages</h3><p><a href="https://pages.github.com/">GitHub Pages</a> is designed to host your personal, organization, or project pages directly from a GitHub repository.<br><a href="https://help.github.com/articles/what-is-github-pages/">What is GitHub Pages?</a> says it</p>
+<h3 id="GitHub-Pages"><a href="#GitHub-Pages" class="headerlink" title="GitHub Pages"></a>GitHub Pages</h3><p><a href="https://pages.github.com/">GitHub Pages</a> is designed to host your personal, organization, or project pages directly from a GitHub repository. <a href="https://help.github.com/articles/what-is-github-pages/">What is GitHub Pages?</a> says it</p>
 <ul>
 <li>may be no larger than 1GB</li>
 <li>limit of 10 builds per hour</li>
 <li>limit of 100GB or 100,000 requests per month</li>
 </ul>
-<p>It’s easy to use <a href="https://github.com/hexojs/hexo-deployer-git">hexo-deployer-git</a> to complete deployment, find other deployer plugins at: <del><a href="https://hexo.io/docs/deployment.html">https://hexo.io/docs/deployment.html</a></del>, now you can visit <a href="https://hexo.io/docs/github-pages">https://hexo.io/docs/github-pages</a>.</p>
+<p>It’s easy to use <a href="https://github.com/hexojs/hexo-deployer-git">hexo-deployer-git</a> to complete deployment, visit <a href="https://hexo.io/docs/github-pages">https://hexo.io/docs/github-pages</a> for other plugins.</p>
 <p>For example, if you want to push the source files and generated files at the same time to two different branches, the option should be like</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># _config.yml</span></span><br><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="comment"># push the generated files (static site, i.e., hexo-site/public)</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">    <span class="attr">repo:</span> <span class="string">git@github.com:&lt;username&gt;/&lt;username&gt;.github.io.git</span></span><br><span class="line">    <span class="attr">branch:</span> <span class="string">master</span></span><br><span class="line">  <span class="comment"># push the source files</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">    <span class="attr">repo:</span> <span class="string">git@github.com:&lt;username&gt;/&lt;usersrepository&gt;.git</span></span><br><span class="line">    <span class="attr">branch:</span> <span class="string">src</span></span><br><span class="line">    <span class="attr">extend_dirs:</span> <span class="string">/</span></span><br><span class="line">    <span class="attr">ignore_hidden:</span> <span class="literal">false</span></span><br><span class="line">    <span class="attr">ignore_pattern:</span></span><br><span class="line">        <span class="attr">public:</span> <span class="string">.</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># _config.yml</span></span><br><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="comment"># push the generated files (static site, i.e., hexo-site/public)</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">    <span class="attr">repo:</span> <span class="string">git@github.com:&lt;username&gt;/&lt;username&gt;.github.io.git</span></span><br><span class="line">    <span class="attr">branch:</span> <span class="string">master</span></span><br><span class="line">  <span class="comment"># push the source files</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">    <span class="attr">repo:</span> <span class="string">git@github.com:&lt;username&gt;/&lt;usersrepository&gt;.git</span></span><br><span class="line">    <span class="attr">branch:</span> <span class="string">src</span></span><br><span class="line">    <span class="attr">extend_dirs:</span> <span class="string">/</span></span><br><span class="line">    <span class="attr">ignore_hidden:</span> <span class="literal">false</span></span><br><span class="line">    <span class="attr">ignore_pattern:</span></span><br><span class="line">        <span class="attr">public:</span> <span class="string">.</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="Coding-Pages-Recommend"><a href="#Coding-Pages-Recommend" class="headerlink" title="Coding Pages (Recommend)"></a><del>Coding Pages (Recommend)</del></h3><p>Outdated.</p>
-<p>It’s recommended to host your site to <a href="https://coding.net/pages">Coding Pages</a> if your main readers are living in Chinese Mainland. Just add <code>Hosted by Coding Pages</code> to avoid <a href="https://coding.net/u/coding/p/Coding-Feedback/topic/337715">redirection</a>.</p>
-<p><a href="https://coding.net/help/doc/pages/">Coding Pages 介绍</a> says that it</p>
-<ul>
-<li>no larger than 100MB</li>
-<li>limit of 10 builds per hour</li>
-<li>redirect *.coding.me to a custom domain automaticlly</li>
-<li>One-Click SSL: free SSL certificate</li>
-<li>Force SSL: set a redirect from HTTP to HTTPS</li>
-</ul>
+<h3 id="Coding-Pages"><a href="#Coding-Pages" class="headerlink" title="Coding Pages"></a><del>Coding Pages</del></h3><p>Outdated.</p>
+<p>It’s recommended to host your site to <a href="https://coding.net/pages">Coding Pages</a> if your main readers living in Chinese Mainland. Just add <code>Hosted by Coding Pages</code> to avoid <a href="https://coding.net/u/coding/p/Coding-Feedback/topic/337715">redirection</a>.</p>
 <p>Use it as same as GitHub Pages. Just one difference: don’t need <code>CNAME</code> file, please set Pages service settings.</p>
 <h3 id="Netlify-Recommend"><a href="#Netlify-Recommend" class="headerlink" title="Netlify (Recommend)"></a>Netlify (Recommend)</h3><blockquote>
 <p>“Netlify has everything you need to make a high performance site or web-app. You just push your code.”<br>–Tom Preston-Werner, Founder of GitHub &amp; Creator of Jekyll</p>
@@ -535,7 +529,7 @@
 </ul>
 <p>Netlify lets you link a GitHub repository to a site. Each time you push to GitHub, Netlify runs a build with your tool of choice and deploys the result to Netlify’s powerful CDN. You also can deploy your static site without linking a GitHub (or GitLab) repository.<br>Use <a href="https://app.netlify.com/">web UI</a> or <a href="https://www.netlify.com/docs/cli/">command line tools</a> to deploy and generate.</p>
 <blockquote>
-<p>By the way: <a href="https://www.netlify.com/blog/2016/01/12/this-weekends-ddos-attack-and-whats-in-a-cname/">Matt Biilmann</a> and <a href="https://www.netlify.com/docs/custom-domains/">Netlify</a> recommends <code>www.</code> domain unless you use ALIAS records or ANAME records, I’m naive, I drop <code>www.</code> directly. Users can’t remove the <code>sitename.netlify.com</code> “default” hostname on Netlify, so I have three blog addresses now.</p>
+<p>By the way, <a href="https://www.netlify.com/blog/2016/01/12/this-weekends-ddos-attack-and-whats-in-a-cname/">Matt Biilmann</a> and <a href="https://www.netlify.com/docs/custom-domains/">Netlify</a> recommends <code>www.</code> domain unless you use ALIAS records or ANAME records, I’m naive, I drop <code>www.</code> directly. Users can’t remove the <code>sitename.netlify.com</code> “default” hostname on Netlify, so I have three blog addresses now.</p>
 </blockquote>
 <h3 id="Firebase"><a href="#Firebase" class="headerlink" title="Firebase"></a>Firebase</h3><p>Deploying site to <a href="https://firebase.google.com/">Firebase</a> may be a good choice.</p>
 <p><a href="https://firebase.google.com/products/hosting/">Firebase Hosting</a> tells us Firebase</p>
@@ -554,21 +548,15 @@
 <p>In fact, Firebase is user-friendly (it has Chinese tutorial), just need to follow its guides. In its console, you can see your history record and learn how to bind domain name.</p>
 </blockquote>
 <p>Edit firebase.json to determine which files should be deployed.</p>
-<h2 id="Easy-Deploy-Script"><a href="#Easy-Deploy-Script" class="headerlink" title="Easy Deploy: Script"></a>Easy Deploy: Script</h2><p>Life is short, why not using <a href="https://docs.npmjs.com/cli/run-script">npm-run-script</a>?<br>Add <code>&quot;scripts&quot;: &#123;&#125;</code> to <code>package.json</code>, as follows:</p>
+<h2 id="Easy-Deploy"><a href="#Easy-Deploy" class="headerlink" title="Easy Deploy"></a>Easy Deploy</h2><p>Life is short, why not using <a href="https://docs.npmjs.com/cli/run-script">npm-run-script</a>?<br>Add <code>&quot;scripts&quot;: &#123;&#125;</code> to <code>package.json</code>, as follows:</p>
 <figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;hexo-site&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;version&quot;</span><span class="punctuation">:</span> <span class="string">&quot;0.0.0&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;private&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;hexo&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;version&quot;</span><span class="punctuation">:</span> <span class="string">&quot;6.2.0&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;scripts&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;build&quot;</span><span class="punctuation">:</span> <span class="string">&quot;hexo clean &amp;&amp; hexo g &amp;&amp; gulp build&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;blogupd&quot;</span><span class="punctuation">:</span> <span class="string">&quot;hexo clean &amp;&amp; hexo g &amp;&amp; gulp build &amp;&amp; hexo d&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
-<p>Then the following command will cover:</p>
-<ul>
-<li><code>hexo clean</code>: clean the cache file (db.json) and generated files (public)</li>
-<li><code>hexo g</code>: generate static files</li>
-<li><code>gulp build</code>: optimize generated files</li>
-<li><code>hexo d</code>: you can push the source files to GitHub</li>
-</ul>
+<p>Then the following command will cover <code>hexo clean</code>, <code>hexo g</code>, <code>gulp build</code>, and <code>hexo d</code>.</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># in hexo-site</span><br><span class="line">npm run blogupd</span><br></pre></td></tr></table></figure>
 
-<p>However, if you use Linux, you may prefer create a shell script, or edit <code>.zshrc</code> (or <code>.bashrc</code>, etc.).</p>
+<p>However, if you use Linux, you may prefer to create a shell script, or edit <code>.zshrc</code> (or <code>.bashrc</code>, etc.).</p>
 <p>For example: a shell script <code>blogupd.sh</code>.</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#!/bin/sh</span><br><span class="line">cd ~/blog</span><br><span class="line">hexo clean &amp;&amp; hexo g &amp;&amp; gulp build &amp;&amp; hexo d</span><br></pre></td></tr></table></figure>
-<p>just run (current folder should contain <code>blogupd.sh</code>)</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#!/bin/sh</span><br><span class="line">cd ~/blog &amp;&amp; hexo clean &amp;&amp; hexo g &amp;&amp; gulp build &amp;&amp; hexo d &amp;&amp; cd -</span><br></pre></td></tr></table></figure>
+<p>just run (<code>blogupd.sh</code> should be in current folder)</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sh blogupd.sh</span><br></pre></td></tr></table></figure>
 
 <p>Or edit <code>~/.zshrc</code> (or <code>~/bashrc</code>).</p>
@@ -576,7 +564,7 @@
 <p>just run (no matter where you are)</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">blogupd</span><br></pre></td></tr></table></figure>
 
-<h2 id="Image-Hosting"><a href="#Image-Hosting" class="headerlink" title="Image Hosting"></a>Image Hosting</h2><p><a href="https://hexo.io/docs/asset-folders">Hexo’s Asset Folders</a> allows us to keep images in hexo-site&#x2F;source&#x2F;images folder, use something like <code>![](/images/image.jpg)</code> to access them.</p>
+<h2 id="Image-Hosting"><a href="#Image-Hosting" class="headerlink" title="Image Hosting"></a>Image Hosting</h2><p><a href="https://hexo.io/docs/asset-folders">Hexo’s Asset Folders</a> allows us to keep images or other files in <code>hexo-site/source/images</code> folder, use something like <code>![](/images/image.jpg)</code> to access them.</p>
 <table>
 <thead>
 <tr>
@@ -661,23 +649,21 @@
 <ul>
 <li><img src="/uploads/neutral.svg" align ="left" width="24" height="24"> Info or Not secure</li>
 </ul>
-<p>You can use <a href="https://www.jitbit.com/sslcheck/">JitBit</a> to scan your website for non-secure content.<br>I don’t think a secure symbol provided by Chrome or Firefox is important… But it seems that browsers force us be “secure”.</p>
-<h2 id="About-This-Blog"><a href="#About-This-Blog" class="headerlink" title="About This Blog"></a>About This Blog</h2><p><del>Comment system? I’m waiting for <a href="https://github.com/iissnan/hexo-theme-next/pull/1814">Feature: Add Gitalk Support #1814</a>, as I mentioned above, we’d better wait for developers’ hard work.</del> Now the comment system of my blog is Gitalk. Here is my whole custom settings: <a href="https://github.com/shangguanfch/shangguanfch.github.io/blob/master/README.md" title="https://github.com/shangguanfch/shangguanfch.github.io/blob/master/README.md">README.md</a>.</p>
-<p>My blog is published at <a href="https://shangguanfch.github.io/">https://shangguanfch.github.io</a>.</p>
-<p>I’m considering using <a href="https://www.travis-ci.org/">Travis CI</a> or <a href="https://about.gitlab.com/features/gitlab-ci-cd/">GitLab CI</a>, which may make blogging more convenient (post and edit using Git, not need strict development environment).</p>
-<p>Now I chose Github Actions, see <a href="https://vuepress-theme-reco.recoluan.com/views/other/github-actions.html#%E8%AE%BE%E7%BD%AE-secrets">Lasy：使用 GitHub Actions 自动部署博客</a>.</p>
+<p>You can use <a href="https://www.jitbit.com/sslcheck/">JitBit</a> to scan your website for non-secure content.</p>
+<p>I don’t think a secure symbol provided by Chrome or Firefox is important… But it seems that browsers force us be “secure”.</p>
+<h2 id="About-This-Blog"><a href="#About-This-Blog" class="headerlink" title="About This Blog"></a>About This Blog</h2><p>Now the comment system of my blog is Gitalk. Here is my whole custom settings: <a href="https://github.com/shangguanfch/shangguanfch.github.io/blob/master/README.md" title="https://github.com/shangguanfch/shangguanfch.github.io/blob/master/README.md">README.md</a>.</p>
+<p>I choose Github Actions to deploy automatically, see <a href="https://vuepress-theme-reco.recoluan.com/views/other/github-actions.html#%E8%AE%BE%E7%BD%AE-secrets">Lasy：使用 GitHub Actions 自动部署博客</a>. <a href="https://www.travis-ci.org/">Travis CI</a> or <a href="https://about.gitlab.com/features/gitlab-ci-cd/">GitLab CI</a> is also a chioce.</p>
 <p>Others’ relative articles:</p>
 <ul>
-<li><del><a href="https://xunne.github.io/2017/06/09/%E8%90%8C%E6%96%B0%E7%9A%84arch%E6%90%AD%E5%BB%BAhexo%E7%AC%94%E8%AE%B0/">萌新的 arch 安装 hexo 笔记</a></del><br>-<a href="http://qianling.pw/hexo-optimization/">Hexo Optimization</a></li>
-<li><del><a href="https://blog.nfz.moe/archives/use-hexo-at-any-time-any-place.html">Use Hexo at any Time any Place</a></del></li>
+<li><a href="http://qianling.pw/hexo-optimization/">Hexo Optimization</a></li>
 </ul>
-<h2 id="Upgrade"><a href="#Upgrade" class="headerlink" title="Upgrade"></a>Upgrade</h2><p>My Hexo blog is outdated, it needs upgrade.</p>
+<h2 id="Update"><a href="#Update" class="headerlink" title="Update"></a>Update</h2><p>Update your Hexo blog when you are convenient.</p>
 <p>use <code>npm outdated</code> to check which package is outadated.</p>
-<figure class="highlight coffeescript"><table><tr><td class="code"><pre><span class="line">$ <span class="built_in">npm</span> outdated</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ npm outdated</span><br></pre></td></tr></table></figure>
 <p>then</p>
-<figure class="highlight coffeescript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">npm</span> install -g <span class="built_in">npm</span>-check-updates</span><br><span class="line">ncu -u</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install -g npm-check-updates</span><br><span class="line">ncu -u</span><br></pre></td></tr></table></figure>
 <p>Failed. So I edit <code>package.json</code>, and run</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure>
 
 <p>It succeeds.</p>
 ]]></content>
@@ -694,20 +680,28 @@
     <title>Use Visual Studio Code</title>
     <url>/Use-Visual-Studio-Code/</url>
     <content><![CDATA[<p>An introduction to use Visual Studio Code (VSC).</p>
+<p>Reference: 《Visual Studio Code权威指南》.</p>
 <span id="more"></span>
 
-<h2 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h2><p>Download VSC from the official website of VSC <a href="https://code.visualstudio.com/">https://code.visualstudio.com</a>.</p>
+<h2 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h2><p>Download VSC from the <a href="https://code.visualstudio.com/">official website of VSC</a>.</p>
+<h2 id="Custom-Settings"><a href="#Custom-Settings" class="headerlink" title="Custom Settings"></a>Custom Settings</h2><p><a href="https://github.com/tonsky/FiraCode">Fira Code</a> is a free monospaced font with programming ligatures. For more information, visit <a href="https://github.com/tonsky/FiraCode/wiki/VS-Code-Instructions">https://github.com/tonsky/FiraCode/wiki/VS-Code-Instructions</a>.</p>
 <h2 id="Extensions"><a href="#Extensions" class="headerlink" title="Extensions"></a>Extensions</h2><h3 id="Settings-Sync"><a href="#Settings-Sync" class="headerlink" title="Settings Sync"></a>Settings Sync</h3><p>Outdated. It is integrated to VSC. See <a href="https://code.visualstudio.com/docs/editor/settings-sync">https://code.visualstudio.com/docs/editor/settings-sync</a>.</p>
-<h3 id="Material-Icon-Theme"><a href="#Material-Icon-Theme" class="headerlink" title="Material Icon Theme"></a>Material Icon Theme</h3><h3 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h3><h3 id="Markdown-Preview-Enhanced"><a href="#Markdown-Preview-Enhanced" class="headerlink" title="Markdown Preview Enhanced"></a>Markdown Preview Enhanced</h3><p><a href="https://github.com/shd101wyy/markdown-preview-enhanced">Markdown Preview Enhanced</a> is an extension to write markdown files on VSC. <kbd>ctrl+k, ctrl+v</kbd> to see preview.</p>
+<h3 id="Material-Theme"><a href="#Material-Theme" class="headerlink" title="Material Theme"></a>Material Theme</h3><p><a href="https://marketplace.visualstudio.com/items?itemName=Equinusocio.vsc-material-theme">Material Theme</a> is the official material theme for VSC, while <a href="https://marketplace.visualstudio.com/items?itemName=Equinusocio.vsc-community-material-theme">Community Material Theme</a> is a theme maintained by the community with ‘legacy’ color schemes. <a href="https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme">Material Icon Theme</a>, which provides Material Design Icons for VSC, has far more installers than <a href="https://marketplace.visualstudio.com/items?itemName=Equinusocio.vsc-material-theme-icons">Material Theme Icons</a>. according to my use, it is also faster.</p>
+<h3 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h3><h3 id="Markdown-Preview-Enhanced"><a href="#Markdown-Preview-Enhanced" class="headerlink" title="Markdown Preview Enhanced"></a>Markdown Preview Enhanced</h3><p><a href="https://github.com/shd101wyy/markdown-preview-enhanced">Markdown Preview Enhanced</a> is an extension to write <code>md.</code> files on VSC. <kbd>ctrl+k, ctrl+v</kbd> to see the preview. Visit <a href="https://shd101wyy.github.io/markdown-preview-enhanced/">its official website</a> to realize more information.</p>
+<h3 id="Marp-for-VS-Code"><a href="#Marp-for-VS-Code" class="headerlink" title="Marp for VS Code"></a>Marp for VS Code</h3><p><a href="https://github.com/marp-team/marp-vscode">Marp for VS Code</a> is a useful extension for making slides in markdown. It can transform md to html, pdf and pptx.</p>
+<p><kbd>ctrl+alt+win+n</kbd> (Windows) to start writing a slide deck quickly.</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">marp:</span> <span class="literal">true</span></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="comment"># Your slide deck</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Code-Runner"><a href="#Code-Runner" class="headerlink" title="Code Runner"></a>Code Runner</h3><p><a href="https://marketplace.visualstudio.com/items?itemName=formulahendry.code-runner">Code Runner</a> is a easy way to run code snippet or code file for multiple languages: C, C++, Java, JavaScript, PHP, Python, and so on.</p>
 <h2 id="Build-C-x2F-C-Environment"><a href="#Build-C-x2F-C-Environment" class="headerlink" title="Build C&#x2F;C++ Environment"></a>Build C&#x2F;C++ Environment</h2><p>This chapter introduces how to build a C&#x2F;C++ environment on VSC on Windows.</p>
 <p>Steps:</p>
 <ol>
-<li>Download C&#x2F;C++ Extension. Open VSC, click Extensions (扩展), or use hotkey <kbd>ctrl+shift+x</kbd>. Search C&#x2F;C++ and download it. To use Simplified Chinese UI, you can install Chinese (Simplified) (简体中文) Language Pack for Visual Studio Code. And Code Runner is a easy way to compile and run code.</li>
+<li>Download C&#x2F;C++ Extension. Open VSC, click Extensions (扩展), or use shortcut <kbd>ctrl+shift+x</kbd>. Search C&#x2F;C++ and download it. To use Simplified Chinese UI, you can install Chinese (Simplified) (简体中文) Language Pack for Visual Studio Code.</li>
 <li>Install MinGW-w64. Install it from <a href="https://www.mingw-w64.org/downloads/">the official website of MinGW-w64</a>, or <a href="https://sourceforge.net/projects/mingw-w64/files/">its sourceforge page</a>. Notice: don’t install <a href="https://sourceforge.net/projects/mingw/">MinGW</a>.</li>
 <li>Change environment virable. If you use win10 or win11, search “env” (环境变量), click <code>Edit the System Environment Variables</code> (编辑系统环境变量), click <code>Advanced</code> (高级) -&gt; <code>Environment Virables...</code> (环境变量), click <code>Path</code> (路径), click <code>new</code>, add the path <code>C:\MInGW\bin\</code> (change it accroding to your path). Run <code>gcc -v</code> on cmd to know whether you are successful.</li>
 <li>Create a C&#x2F;C++ file. e.g., <code>main.cpp</code>, write some words in it, an example: <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    cout&lt;&lt;<span class="string">&quot;hello world&quot;</span>&lt;&lt;endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li>Create tasks.json. Click <code>Terminal</code> (终端) -&gt; <code>Configure Tasks...</code>, click <code>g++.exe</code>. Now, select <code>main.cpp</code>, click <code>Terminal</code> -&gt; <code>Run Task</code>, click <code>C/C++: g++.exe build active file</code>. Then a internal terminal will open to show the build result. If successfully, it will create <code>main.exe</code>.</li>
-<li>Create lauch.json. Click <code>Run</code> (运行) -&gt; <code>Add Configuration...</code>.</li>
+<li>Create <code>tasks.json</code>. Click <code>Terminal</code> (终端) -&gt; <code>Configure Tasks...</code>, click <code>g++.exe</code>. Now, select <code>main.cpp</code>, click <code>Terminal</code> -&gt; <code>Run Task</code>, click <code>C/C++: g++.exe build active file</code>. Then a internal terminal will open to show the build result. If successfully, it will create <code>main.exe</code>.</li>
+<li>Create <code>lauch.json</code>. Click <code>Run</code> (运行) -&gt; <code>Add Configuration...</code>.</li>
 <li>Now, <kbd>F5</kbd> can start debugging.</li>
 </ol>
 <p>Further reading:</p>
@@ -722,7 +716,6 @@
       <tags>
         <tag>record</tag>
         <tag>editor</tag>
-        <tag>vsc</tag>
       </tags>
   </entry>
   <entry>
@@ -757,11 +750,6 @@
     <content><![CDATA[<p><a href="https://yuba.douyu.com/yukari">斗鱼主播</a>，<a href="https://space.bilibili.com/5055#!/">B站UP主</a>，<a href="http://baike.baidu.com/link?url=dfu5pfnifixi7isqNBSgSBYSL6Rxd0KDgFiycS1w5p1TvOuMtkRIjW8FgM7_U5OgAy-Ju9svMl0zOisoyAkK4vJc-p03Am3oJQnlekBZioy">百度百科：小缘</a></p>
 <span id="more"></span>
 
-<h2 id="斜眼"><a href="#斜眼" class="headerlink" title="斜眼"></a>斜眼</h2><p><img src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=4182163866,2722239327&fm=27&gp=0.jpg"></p>
-<h2 id="睁眼看"><a href="#睁眼看" class="headerlink" title="睁眼看"></a>睁眼看</h2><p><img src="https://gss1.bdstatic.com/9vo3dSag_xI4khGkpoWK1HF6hhy/baike/c0%3Dbaike80%2C5%2C5%2C80%2C26/sign=53e6b0d23c2ac65c73086e219a9bd974/b812c8fcc3cec3fd9562cbc7df88d43f87942727.jpg"></p>
-<h2 id="演唱"><a href="#演唱" class="headerlink" title="演唱"></a>演唱</h2><p><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1498299261362&di=e71b9c18240750984567f553c40cb2fd&imgtype=0&src=http://imgs.aixifan.com/content/2016_10_05/1478335295.jpg"></p>
-<h2 id="夏天"><a href="#夏天" class="headerlink" title="夏天"></a>夏天</h2><p><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1498299123210&di=dffe81b5107fcae3b7f4eed0a2e846a1&imgtype=0&src=http://i2.hdslb.com/bfs/archive/f78ab7db44c12c7198134815ebd2ee6b4acc4d6e.jpg"></p>
-<h2 id="手持话筒"><a href="#手持话筒" class="headerlink" title="手持话筒"></a>手持话筒</h2><p><img src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=4223977849,1936464055&fm=27&gp=0.jpg"></p>
 <h2 id="小缘"><a href="#小缘" class="headerlink" title="小缘"></a>小缘</h2><p><img src="https://b-ssl.duitang.com/uploads/item/201501/10/20150110220123_MMeSu.jpeg"></p>
 <h2 id="可用歌单"><a href="#可用歌单" class="headerlink" title="可用歌单"></a>可用歌单</h2><ol>
 <li><a href="https://music.163.com/playlist?id=115150783">小缘喵～最全的大毛歌单</a></li>
@@ -784,26 +772,16 @@
   <entry>
     <title>中国近古的国家治理——《叫魂》阅读</title>
     <url>/%E4%B8%AD%E5%9B%BD%E8%BF%91%E5%8F%A4%E7%9A%84%E5%9B%BD%E5%AE%B6%E6%B2%BB%E7%90%86%E2%80%94%E2%80%94%E3%80%8A%E5%8F%AB%E9%AD%82%E3%80%8B%E9%98%85%E8%AF%BB/</url>
-    <content><![CDATA[<p>本文是作者的法与社会课期末作业。</p>
-<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ul>
-<li>作者简介</li>
-<li>三种叙事</li>
-<li>社会分析</li>
-<li>统治分析</li>
-<li>清律分析</li>
-<li>反思<span id="more"></span></li>
-</ul>
-<h2 id="作者简介"><a href="#作者简介" class="headerlink" title="作者简介"></a>作者简介</h2><p>孔飞力（Philip Alden Kuhn，1933.9.9-2016.2.11），出生于英国伦敦。1950年，毕业于美国华盛顿特区的威尔逊（CWoodraw Wilson）高级中学，同年考入哈佛大学。美国著名汉学家、哈佛大学历史讲座教授、东亚文明与语言系主任。曾任哈佛大学费正清研究中心主任、芝加哥大学远东语言文化系主任。<br>他的主要学术著作：《中华帝国晚期的叛乱及其敌人：1796-1864年的军事化与社会结构》、《叫魂：1768年中国妖术大恐慌》、《中国现代国家的起源》。其中《叫魂》于1990年在美国出版。</p>
+    <content><![CDATA[<p>《叫魂》阅读笔记。</p>
+<span id="more"></span>
+<h2 id="作者简介"><a href="#作者简介" class="headerlink" title="作者简介"></a>作者简介</h2><p>孔飞力（Philip Alden Kuhn，1933.9.9-2016.2.11），出生于英国伦敦，1950年毕业于美国华盛顿特区的威尔逊（CWoodraw Wilson）高级中学，同年考入哈佛大学。是美国著名汉学家、哈佛大学历史讲座教授。他的主要学术著作有：《中华帝国晚期的叛乱及其敌人：1796-1864年的军事化与社会结构》、《叫魂：1768年中国妖术大恐慌》、《中国现代国家的起源》。其中《叫魂》于1990年在美国出版。</p>
 <h2 id="三种叙事"><a href="#三种叙事" class="headerlink" title="三种叙事"></a>三种叙事</h2><p>书中的三种叙事引人注目。叫魂一事在不同阶层激起不同反应，因此有百姓的叙事、官僚的叙事、皇帝的叙事三种不同视角的叙事。</p>
-<h3 id="百姓的叙事"><a href="#百姓的叙事" class="headerlink" title="百姓的叙事"></a>百姓的叙事</h3><p>1768年春，浙江德清县城，一支海宁的工程队无功而返，石匠吴东明承揽了修建工程。潦倒的慈相寺和尚们散布谣言称，海宁的石匠在县城外去观音殿的路上做了法。谣言不胫而走，并被添枝加叶。一时间，人们谈妖色变，无端地猜疑。5月3日，江苏苏州，三个乞丐被怀疑剪人发辫，窃取人魂，抓到官府审问，最后因无证据而释放，但张氏死在狱中。6月21日，在汉阳府，一大群在街头观剧的人抓住了一个可疑的妖人，将他殴打至死，并焚烧了他的尸体。在山东，人们抓住了一个雇工和一个读书人。</p>
-<h3 id="官僚的叙事"><a href="#官僚的叙事" class="headerlink" title="官僚的叙事"></a>官僚的叙事</h3><p>恐慌初起时，官僚们力图息事宁人，安抚民间，打击无事生非，制止谣言的流传。但皇帝通过自己独立的情报来源得知了叫魂一事。7月25日，皇帝谕旨下达，山东巡抚抢先发动了对叫魂的围捕，各省也纷纷跟进。在山东抓获的妖党口供称妖首在江南，于是皇帝命令江南各省缉拿妖首。一场清剿迅速展开，持续了几个月。在戕害了无数生命后，军机大臣通过对案犯的审讯发现了真相，他们表现了相当大的道德勇气，制止了清剿。</p>
+<h3 id="百姓的叙事"><a href="#百姓的叙事" class="headerlink" title="百姓的叙事"></a>百姓的叙事</h3><p>1768年春，浙江德清县城，一支海宁的工程队无功而返。石匠吴东明承揽了修建工程，潦倒的慈相寺和尚们散布谣言称，海宁的石匠在县城外去观音殿的路上做了法。谣言不胫而走，并被添枝加叶。一时间，人们谈妖色变，无端猜疑。5月3日，江苏苏州，三个乞丐被怀疑剪人发辫，窃取人魂，抓到官府审问，最后因无证据而释放，但张氏死在狱中。6月21日，在汉阳府，一大群在街头观剧的人抓住了一个可疑的妖人，将他殴打至死，并焚烧了他的尸体。在山东，人们抓住了一个雇工和一个读书人。</p>
+<h3 id="官僚的叙事"><a href="#官僚的叙事" class="headerlink" title="官僚的叙事"></a>官僚的叙事</h3><p>恐慌初起时，官僚们力图息事宁人，安抚民间，打击无事生非，制止谣言的流传。但皇帝通过自己独立的情报来源得知了叫魂一事。7月25日，皇帝谕旨下达，山东巡抚抢先发动了对叫魂的围捕，各省也纷纷跟进。在山东抓获的妖党口供称妖首在江南，于是皇帝命令江南各省缉拿妖首。一场清剿迅速展开，持续了几个月。在戕害了无数生命后，军机大臣通过对案犯的审讯发现了真相，他们表现出相当大的道德勇气，制止了清剿。</p>
 <h3 id="皇帝的叙事"><a href="#皇帝的叙事" class="headerlink" title="皇帝的叙事"></a>皇帝的叙事</h3><p>在皇帝看来，以江南为源的官场腐败习气正在侵蚀官僚体系。皇帝绝非昏君，但9月7日，他将剪辫妖术与剃发联系起来，即皇帝相信有人在利用妖术煽动对清帝国的仇恨，阴谋挑起反满叛乱。随着时间的推移，妖术案的破绽越来越多，但皇帝对官僚们的愤怒和失望却越发加剧。然后皇帝接受了军机大臣们的建议，下令停止清剿。但在谕旨中，皇帝仍坚持妖术阴谋的存在，因为有了这样的说辞，皇帝便可对各级官僚进行清算，绝大多数涉及此案的官僚都因为玩忽职守而受到处罚。作为平衡，滥刑无辜的官僚也被弹劾。然而山东巡抚受到的处罚非常轻微，尽管他制造了最多的麻烦，显然，这是皇帝在为自己开脱。</p>
-<h2 id="社会分析"><a href="#社会分析" class="headerlink" title="社会分析"></a>社会分析</h2><ul>
-<li><blockquote>
-<p><strong>“和平孕育了中国历史上就人口增长与商业扩展而言最为伟大的时期”，“有人认为，在整个十八世纪的过程中，中国的人口数翻了一倍。”</strong></p>
+<h2 id="社会分析"><a href="#社会分析" class="headerlink" title="社会分析"></a>社会分析</h2><blockquote>
+<p>“和平孕育了中国历史上就人口增长与商业扩展而言最为伟大的时期”，“有人认为，在整个十八世纪的过程中，中国的人口数翻了一倍。”</p>
 </blockquote>
-</li>
-</ul>
 <p>但白银流入的急剧增加发生在1760年之后，人口增长的压力至此方得缓解。在此之前：</p>
 <ol>
 <li>日益抬高的稻米价格及日益增长的人口数量，使得米价成为普通百姓的沉重负担。</li>
@@ -811,19 +789,15 @@
 <li>由前两方面原因带来的人口的流动方向的变迁：即由内向外，由中上层向下层。</li>
 </ol>
 <p>有理由相信，在这之前，人口压力的增加导致了社会竞争的加剧，对于处在社会底层和边缘地区的人们来说，他们更加容易成为流浪者了。而对于大多数辛勤劳作维持温饱的人们，他们同样感到生存竞争的严酷。一旦叫魂谣言流传，他们脆弱的神经立刻绷紧，开始怀疑那些居无定所的陌生人。不过，社会关系的紧张和人们对妖术的恐惧的关系尚待研究，作者提醒我们，更明显的事实是：</p>
-<ul>
-<li><blockquote>
-<p><strong>在这样一个备受困扰的社会里，人们会对自己能否通过工作或学习来改善自身的境遇产生怀疑。这种情况由于腐败而不负责任的司法制度而变得更加无法容忍，没有一个平民会指望从这一制度中得到公平的补偿。在这样一个世界里，妖术既是一种权力的幻觉，又是对每个人的一种潜在的权力补偿。</strong></p>
+<blockquote>
+<p>在这样一个备受困扰的社会里，人们会对自己能否通过工作或学习来改善自身的境遇产生怀疑。这种情况由于腐败而不负责任的司法制度而变得更加无法容忍，没有一个平民会指望从这一制度中得到公平的补偿。在这样一个世界里，妖术既是一种权力的幻觉，又是对每个人的一种潜在的权力补偿。</p>
 </blockquote>
-</li>
-<li><blockquote>
-<p><strong>只有非常的境况才会给无权无势者带来突然的机会，使他们得以改善自己的状况或打击自己的敌人。即使在今天，让普通民众享有权力仍是一个还未实现的许诺。</strong></p>
+<blockquote>
+<p>只有非常的境况才会给无权无势者带来突然的机会，使他们得以改善自己的状况或打击自己的敌人。即使在今天，让普通民众享有权力仍是一个还未实现的许诺。</p>
 </blockquote>
-</li>
-</ul>
-<p>在这样一个“受困扰社会”（impacted society），冤冤相报是社会生活的显著特点。朝廷发动的清剿使得<strong>“以冤冤相报为形式广泛弥漫的社会敌视”</strong>变成了实实在在的相互攻击。</p>
+<p>在这样一个“受困扰社会”（impacted society），冤冤相报是社会生活的显著特点。朝廷发动的清剿使得“以冤冤相报为形式广泛弥漫的社会敌视”变成了实实在在的相互攻击。</p>
 <ul>
-<li>村民将恐惧发泄在流浪乞丐、游方僧道上。 <strong>“否则的话，在抵御邪术的问题上，他们就只有指望对妖术持不可知态度的官僚们为他们提供微不足道的保护了”</strong>。</li>
+<li>村民将恐惧发泄在流浪乞丐、游方僧道上。 “否则的话，在抵御邪术的问题上，他们就只有指望对妖术持不可知态度的官僚们为他们提供微不足道的保护了”。</li>
 <li>一位山西生员诬陷其叔父“谋反”，为了能得到更多家产。</li>
 <li>一个欠债者被债主讨债，为此他将发辫和一把剪刀塞进债主的包袱，然后指控债主为剪辫犯。</li>
 </ul>
@@ -833,60 +807,33 @@
 <li>重申官场规范：皇帝要求官员越过辖区缉捕罪犯。</li>
 <li>强化个人关系：必要时，皇帝以专制权力威慑与皇帝有私人关系的高级官员。</li>
 </ul>
-<p>由此强化了皇帝日益衰退的专断权力。但从长远来看，官僚的常规权力越来越占上风，清朝皇帝再也没有抓住类似事件大做文章，可能也说明了这点。（这让人联想到：施密特的非常状态与主权者的政治决断）</p>
-<h3 id="官僚的应对"><a href="#官僚的应对" class="headerlink" title="官僚的应对"></a>官僚的应对</h3><p>官僚试图恐吓暴民来安抚民间，隐瞒信息来蒙蔽皇帝。皇帝通过自己的情报来源知悉了一切并下达了命令，官僚们不得不勉强从事清剿。但他们有各种方法来抵制皇帝的淫威。</p>
+<p>由此强化了皇帝日益衰退的专断权力。但从长远来看，官僚的常规权力越来越占上风，清朝皇帝再也没有抓住类似事件大做文章，可能也说明了这点。（这让人联想到施密特的非常状态与主权者的政治决断。）</p>
+<h3 id="官僚的应对"><a href="#官僚的应对" class="headerlink" title="官僚的应对"></a>官僚的应对</h3><p>官僚试图恐吓暴民来安抚民间，隐瞒信息来蒙蔽皇帝。皇帝通过自己的情报来源知悉了一切并下达了命令，官僚们不得不勉强从事清剿。但他们有各种方法来抵制皇帝的淫威。这些方法是：</p>
 <ul>
 <li>忙而不动：江西巡抚没有采取任何措施缉捕嫌疑人，并伪造了给皇帝的报告。</li>
 <li>转移视线：苏州按察使击破了一个地下教会。有理由相信苏州政府对该教会的活动早已知悉甚至默许，为了应对皇帝的压力，将其牺牲。</li>
 <li>统一步调：湖广总督亲自审理觉性案件，多个官员同时出场。</li>
-<li>常规化：南京布政使建议加强保甲制，两江总督建议加强户口登记，官僚们于是将清剿纳入常规政务。</li>
+<li>常规化：南京布政使建议加强保甲制，两江总督建议加强户口登记，官僚们由此将清剿纳入常规政务。</li>
 </ul>
 <p>皇帝对官僚们的伎俩洞若观火，采取了必要的有时视若未睹、有时严加斥责的态度。</p>
-<h3 id="清廷的正统性和合法性"><a href="#清廷的正统性和合法性" class="headerlink" title="清廷的正统性和合法性"></a>清廷的正统性和合法性</h3><p>清帝国的合法性来自于历朝历代未曾做到的空前大一统帝国的经验和现实，官方表述是：“盛世”。为了营造盛世气象，从官僚到皇帝都对种种乱象持压制和否定的态度。</p>
+<h3 id="清廷的正统性和合法性"><a href="#清廷的正统性和合法性" class="headerlink" title="清廷的正统性和合法性"></a>清廷的正统性和合法性</h3><p>清帝国的合法性来自于历朝历代未曾做到的空前大一统帝国的经验和现实，官方表述为：“盛世”。为了营造盛世气象，从官僚到皇帝都对种种乱象持压制和否定的态度。</p>
 <h2 id="清律分析"><a href="#清律分析" class="headerlink" title="清律分析"></a>清律分析</h2><p>《大清律例》包含禁止妖术内容的条款有：十恶：不道。礼律：祭祀、仪制。刑律：贼盗、人命。从《刑案汇览》来看，在实际执行中，这用于对付种种变态行径，和造反。屡被提及的“惑众”说法引人注目，似乎是掩盖承认术士和超自然世界的联系。</p>
 <h3 id="叫魂释义"><a href="#叫魂释义" class="headerlink" title="叫魂释义"></a>叫魂释义</h3><p>民间之所以有“叫魂”恐惧，很大程度上是因为民间有身心二元的古老信仰。灵魂与肉身的可分离性使得中国人相信灵魂可以被别有用心的掌握妖术的“术士”施以超自然力量而偷走。这里的叫魂，意义上更倾向于“偷魂”。施以妖术的仪式过程是模糊的，但在众多侵害身心的妖术活动记载中，普遍存在两个关键的物品：头发和纸人。在很多文化中头发具有神奇的魔力，被认为与生育能力有关，或与自身灵魂力量的效力扩展有关。</p>
 <h3 id="国家与超自然力量"><a href="#国家与超自然力量" class="headerlink" title="国家与超自然力量"></a>国家与超自然力量</h3><p>国家有自己的天地崇拜，但不能承认其他天地崇拜的地位。国家既否认其他神灵的存在，也否认他们的力量。然而，天人感应理论认为天命通过普通百姓彰显。恐慌是迹象，也是上天的手段，国家因此小心对待恐慌。</p>
-<p>另外，<strong>“某些罪行是如此不人道”</strong>，以至只能使用处置妖术的条款处置。执法者们其实相信，某些卑鄙龌龊的事情是能发生在人与神灵之间的。</p>
+<p>另外，“某些罪行是如此不人道”，以至只能使用处置妖术的条款处置。执法者们其实相信，某些卑鄙龌龊的事情是能发生在人与神灵之间的。</p>
 <h3 id="国家对妖术的反应"><a href="#国家对妖术的反应" class="headerlink" title="国家对妖术的反应"></a>国家对妖术的反应</h3><ul>
 <li>为了保护百姓，国家采取行动。</li>
 <li>由于害怕引起恐慌，国家谨慎行事，既不布下天罗地网，也不大事声张。</li>
 </ul>
-<h2 id="反思"><a href="#反思" class="headerlink" title="反思"></a>反思</h2><p>我注意到，尽管作者已超越了“冲击-反应”范式，也强调清朝和世界贸易体系的联系，仍有两点潜在想法似乎和现在的思潮背离：第一，现代化已经不被理解为一个应该发生的事件，而是一个产生于西欧的“偶然”。第二，二十年来美国的新清史运动认为，清帝国是一个多元的大帝国，“汉化”只是统治术的一个方面。当然，这并不影响《叫魂》的价值。</p>
+<h2 id="反思"><a href="#反思" class="headerlink" title="反思"></a>反思</h2><p>我注意到，尽管作者超越“冲击-反应”范式，强调清朝和世界贸易体系的联系，仍有两点潜在想法似乎和现在的思潮背离：第一，现代化已经不被理解为一个应该发生的事件，而是一个产生于西欧的“偶然”。第二，二十年来美国的新清史运动认为，清帝国是一个多元的大帝国，“汉化”只是统治术的一个方面。</p>
 <p>2012年四川和长春的末日恐慌，在今日看来，也是基于人类恐惧的可笑事件，和妖术恐慌类似。反日游行上假借“爱国”之名的打砸抢的宣泄，和书中揭示的无权力者借其他话语发泄不满类似。</p>
-<p>对于揭示清帝国这样一个近古帝国的运行逻辑，此书尚可一读。而对妖术、邪教等超自然力量的想象会继续在人类的精神世界运行，但恐怕很难激起大范围的反应了。</p>
+<p>对于揭示清朝这样一个近古朝代的运行逻辑，此书尚可一读。而对妖术、邪教等超自然力量的想象会继续存在于人类的精神世界，但恐怕很难激起大范围的反应了。</p>
 ]]></content>
       <categories>
         <category>笔记</category>
       </categories>
       <tags>
         <tag>笔记</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>佛教的传入对中华民族的形构过程产生的作用</title>
-    <url>/%E4%BD%9B%E6%95%99%E5%AF%B9%E4%B8%AD%E5%8D%8E%E6%96%87%E6%98%8E%E7%9A%84%E5%BD%A2%E6%9E%84%E8%BF%87%E7%A8%8B%E4%BA%A7%E7%94%9F%E7%9A%84%E4%BD%9C%E7%94%A8/</url>
-    <content><![CDATA[<p>本文是作者的中华文明通论课（上）的期末作业。</p>
-<span id="more"></span>
-
-<h2 id="佛教改变了中国人的思维方式"><a href="#佛教改变了中国人的思维方式" class="headerlink" title="佛教改变了中国人的思维方式"></a>佛教改变了中国人的思维方式</h2><h3 id="佛教用语对汉语的影响"><a href="#佛教用语对汉语的影响" class="headerlink" title="佛教用语对汉语的影响"></a>佛教用语对汉语的影响</h3><p>佛教用语包括刹那、心境、境界、报应、大千世界、因果、红尘、大慈大悲、大彻大悟、世界、实际、平等、现在、忏悔、缘分、情缘等。很多跟我们的生活融合得很紧密。此外还有自觉、真理、自由自在、自作自受、不知不觉、不可思议、一刀两断、心花怒放等。还有一些常用词，比如奇特、苦恼、转变等，它们也来自佛教。<br>从语言影响思维这个角度看，佛教使汉语变得更为精密，提高了汉语的表达能力，加强了汉语的逻辑性。这提高了中国人的抽象思维能力和逻辑思维能力。</p>
-<h3 id="佛教思维方式对中国的影响"><a href="#佛教思维方式对中国的影响" class="headerlink" title="佛教思维方式对中国的影响"></a>佛教思维方式对中国的影响</h3><h4 id="缘起性空"><a href="#缘起性空" class="headerlink" title="缘起性空"></a>缘起性空</h4><p>佛教与中国文化的差异，很重要的方面是佛教给我们提供了一种迥然不同的思维方式：缘起性空。在日常生活里，我们本能地会以自我为中心，并以天地万物为真实的存在。然而，佛教以“缘起论”为根本，认为万事万物（包括人自身在内）都是因缘而起，无时无刻不在无常变化，论其本性，一切皆空。缘起论告诉我们一切事物有原因、有条件，万物都在无常变化。随缘的内涵，是要大家分析因缘、观察因缘，从而选择契合自己的机缘，与时俱进。佛教的缘起论，是要强调个人在不同时候的不同因缘。条件不具备，任何人都会无功而返。只有不忘初衷，无怨无悔，积极创造条件，才能心想事成。这样的思想，在中国老百姓中间广为流传，“随缘”成了大家的一句口头语，进而成为一种生活态度。</p>
-<h4 id="诸法无我"><a href="#诸法无我" class="headerlink" title="诸法无我"></a>诸法无我</h4><p>这种“无我”的思想，表现在社会伦理方面，就是“众生平等”的慈悲精神，以一种平等心体会众生的疾苦。儒家在建构“三纲五常”、提供“礼教”的同时，努力推行“仁政”、“恕道”。儒家的“仁”，特别强调“德性”的重要性，认为“皇天无亲，惟德是辅”。即使是已经赋予的天命，只要缺乏“德性”，也会转移到别人身上。但是，儒家的这些论述，最终还是回归到等级制的合理性。佛教的传入，使等级制成为虚名，各民族、各阶层之间的交往从此增加了一份平等的基础。譬如，在东晋时期，往往出身于寒门的僧人，以其脱俗的谈吐、独特的思想，优游于社会名流，往来于帝王将相。而在当时由少数民族执政的北方，佛教成为胡、汉不同民族和解、交流的桥梁。“无我”所要展现的并不是社会伦理的权威性，而是个体生命最终的真相：所有的个体生命都以其他生命的存在为前提，真正的自利，都以利他为前提。珍惜生命，关爱所有的生命，是佛教“无我”思想的最终落脚点，即是所谓的慈悲精神。</p>
-<h3 id="余论"><a href="#余论" class="headerlink" title="余论"></a>余论</h3><p>禅宗的兴起，发展了中国的心性理论、审美情趣，对中国的文学艺术、音乐绘画、园林建筑等都有显著的影响。潜移默化地影响了士大夫的思维方式。</p>
-<h2 id="佛教改变了中国人的精神世界"><a href="#佛教改变了中国人的精神世界" class="headerlink" title="佛教改变了中国人的精神世界"></a>佛教改变了中国人的精神世界</h2><h3 id="佛教塑造了中国人的信仰世界"><a href="#佛教塑造了中国人的信仰世界" class="headerlink" title="佛教塑造了中国人的信仰世界"></a>佛教塑造了中国人的信仰世界</h3><p>佛教影响了中国人对死后世界的想象、神灵谱系的建构、民间宗教和风俗习惯的演化。净土宗的称名念佛、天台宗的经忏活动，对中国民间的信仰世界产生了重要影响。</p>
-<h4 id="称名念佛"><a href="#称名念佛" class="headerlink" title="称名念佛"></a>称名念佛</h4><p>称名念佛：称念“南无阿弥陀佛”六字圣号，通过信愿称念阿弥陀佛得名号求生西方净土的方法。唐朝中期之前，学习佛教的多是社会上流人士，而昙鸾、道绰和善导开创出的持名念佛，以其简便易行的修持方法，打开了通往民间的大门，奠定了民间佛教的信仰格局，在中国佛教史上具有划时代和里程碑的重要意义。</p>
-<h4 id="经忏"><a href="#经忏" class="headerlink" title="经忏"></a>经忏</h4><p>经忏：僧人念经拜忏、祈福超生的仪式。部派佛教的忏悔表现为事忏多于理忏，大乘佛教的戒律则为理忏多于事忏。崇尚大乘的汉地佛教忏仪则取事理并重的特色，并受王权政治和儒道观念等的影响，成为了佛教中国化的标志之一。宋代天台忏法的程式基本同于隋唐时期，忏法与世俗社会广泛结合，反映了天台宗忏法对世俗社会的介人。忏法与菩萨戒为代表的佛教戒律结合，适合了广大民众的需求。</p>
-<h3 id="夷夏论与边地意识"><a href="#夷夏论与边地意识" class="headerlink" title="夷夏论与边地意识"></a>夷夏论与边地意识</h3><p>经过春秋时期，中国形成了具有强烈文化优越感的民族理论，“夷夏论”。“夷夏论”认为，“华夏”民族居住在世界的中央。<br>《牟子理惑论》明确否定了“汉地”是世界中心的说法。在以后的中国佛教界，这种观念变成了一种“边地”意识。这种“边地意识”，促使中国人放眼看世界，放弃原有的文化优越感，突破狭隘的民族主义。<br>牟子认为，学佛并不妨碍尊孔。他在辩解时，援引中国传统的星象学说，北辰在天之中，提出“汉地未必为天中”的观点。牟子在此委婉挑战了传统的“四裔五方”的中国意识。<br>最能表现“边地意识”的行为，应是中国僧人当时的西行求法。在求法僧人的心中，印度才是世界的中心，而华夏不过是未开化的“边鄙之地”。曹魏甘露五年 (260 年 ) ，中国本土第一位出家人朱士行，毅然决然西行求法。从此以后，许多中国僧人涉流沙，渡鲸波，不远万里，前仆后继。他们有的像玄奘（ 600-664 ）那样沿着沙漠绿洲，万里奔波；有的像义净（ 635-713 ）那样劈波斩浪，远涉重洋；更多的则是中途罹难，抱憾而逝。</p>
-<h2 id="中国佛教的民族融合功能"><a href="#中国佛教的民族融合功能" class="headerlink" title="中国佛教的民族融合功能"></a>中国佛教的民族融合功能</h2><h3 id="佛教与少数民族统治"><a href="#佛教与少数民族统治" class="headerlink" title="佛教与少数民族统治"></a>佛教与少数民族统治</h3><p>魏晋南北朝时期，中国北方占据中原的少数民族统治者，觉得佛教也是外来的文明，与他们是天然的盟友。<br>最著名的说法是，后赵皇帝石虎说，“佛是戎神”，不分胡汉，境内百姓都可以信奉。他大力推广佛教，缓解了中国北方的民族矛盾。<br>佛教在北魏时期，取得了空前的发展。北魏设有专门的僧尼管理机构：昭玄寺。史料记载，当时北方的僧尼人数一度高达两、三百万。这一时期，还修建了大同云岚石窟、洛阳龙门石窟等著名佛教遗迹。</p>
-<h3 id="佛教与民族认同：中国佛教成为中国“民族认同”的有机组成部分"><a href="#佛教与民族认同：中国佛教成为中国“民族认同”的有机组成部分" class="headerlink" title="佛教与民族认同：中国佛教成为中国“民族认同”的有机组成部分"></a>佛教与民族认同：中国佛教成为中国“民族认同”的有机组成部分</h3><p>中国以汉族为主体的传统文化，明清以来已形成儒释道三足鼎立的格局。<br>而在信奉藏传佛教的藏族、蒙古族，佛教是其民族文化不可分割的组成部分，甚至是其最主要的文化特色。<br>佛教在中国社会，一方面是在彰显不同的民族特色，强化不同的民族认同，另一方面也在缩短不同民族的心灵距离，增进民族团结，推动民族之间的融合。<br>在中国社会，汉族的民族认同主要是一种“文化认同”。现代中国的“中华民族”，是一个复合的民族概念。之所以有这样的民族观念，佛教是最重要的催化剂之一。</p>
-<hr>
-<p>参考文献：<br>李四龙《中国佛教的民族融合功能》<br>李四龙《论儒释道“三教合流”的类型》<br>李四龙《佛教在当代中国的文化价值》<br>阮炜《中国文明对佛教的吸纳》<br>朱亚仲《净土宗持名念佛的理论与修持探析》<br>觉慧法师《试论两宋间的天台忏法》</p>
-]]></content>
-      <categories>
-        <category>笔记</category>
-      </categories>
-      <tags>
-        <tag>笔记</tag>
-        <tag>作业</tag>
       </tags>
   </entry>
   <entry>
