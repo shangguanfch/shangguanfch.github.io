@@ -71,6 +71,7 @@ hexo clean && hexo g && gulp build && hexo d
 - [ ] use [hexo-qiniu-sync](https://github.com/gyk001/hexo-qiniu-sync) to synchronize images and videos in [qiniu](https://portal.qiniu.com)
 
 ## Remainders
+- [x] use `hide: true` to hide articles. see https://blog.ccknbc.cc/posts/how-to-hide-hexo-articles-gracefully/
 - [ ] set different `per_page` in `hexo-site/_config.yml`, of index, archive and tags: see [NexT: 如何设置页面文章的篇数？](http://theme-next.iissnan.com/faqs.html#setting-page-size)
 - [ ] add [\<audio\>](http://www.w3school.com.cn/tags/tag_audio.asp) in `hexo-site/themes/next/layout/_custom/sidebar.swig`
 - [x] use [npm-run-script](https://docs.npmjs.com/cli/run-script) to save time
