@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/uploads/favicon.webp">
+  <link rel="icon" type="image/png" sizes="32x32" href="/uploads/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/uploads/favicon.ico">
+  <link rel="mask-icon" href="/uploads/favicon.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic%7CFira+Code:300,300italic,400,400italic,700,700italic%7CConsolas:300,300italic,400,400italic,700,700italic%7C"Courier+New":300,300italic,400,400italic,700,700italic%7Cmonospace:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha256-AbA177XfpSnFEvgpYu1jMygiLabzPCJCRIBtR5jGc0k=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"shangguanfch.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.13.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":true,"nav":null,"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="本文在Linux内核6.8.0中加入新系统调用，编译、安装新的Linux内核，测试新的系统调用。编译Linux内核会产生大量中间文件，建议为Ubuntu系统保留至少50G可用硬盘空间，否则会超出容量，不能完成编译。 操作系统：Ubuntu 24.04.1 LTS。在终端输入uname -r查看当前系统版本号，为6.8.0-x-generic。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="在Linux内核中添加系统调用">
+<meta property="og:url" content="https://shangguanfch.github.io/%E5%9C%A8Linux%E5%86%85%E6%A0%B8%E4%B8%AD%E6%B7%BB%E5%8A%A0%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8/index.html">
+<meta property="og:site_name" content="Know My Interest">
+<meta property="og:description" content="本文在Linux内核6.8.0中加入新系统调用，编译、安装新的Linux内核，测试新的系统调用。编译Linux内核会产生大量中间文件，建议为Ubuntu系统保留至少50G可用硬盘空间，否则会超出容量，不能完成编译。 操作系统：Ubuntu 24.04.1 LTS。在终端输入uname -r查看当前系统版本号，为6.8.0-x-generic。">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2025-01-02T02:45:32.000Z">
+<meta property="article:modified_time" content="2025-01-02T04:01:02.950Z">
+<meta property="article:author" content="KMI">
+<meta property="article:tag" content="linux">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://shangguanfch.github.io/%E5%9C%A8Linux%E5%86%85%E6%A0%B8%E4%B8%AD%E6%B7%BB%E5%8A%A0%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://shangguanfch.github.io/%E5%9C%A8Linux%E5%86%85%E6%A0%B8%E4%B8%AD%E6%B7%BB%E5%8A%A0%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8/","path":"在Linux内核中添加系统调用/","title":"在Linux内核中添加系统调用"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>在Linux内核中添加系统调用 | Know My Interest</title>
+  
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Know My Interest</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Search for the Real Interest</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-rss"><a href="/atom.xml" rel="section"><i class="fa fa-rss fa-fw"></i>RSS</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BD%E6%BA%90%E4%BB%A3%E7%A0%81"><span class="nav-number">1.</span> <span class="nav-text">下载源代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8A%A0%E5%85%A5%E6%96%B0%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8"><span class="nav-number">2.</span> <span class="nav-text">加入新系统调用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B3%A8%E5%86%8C%E6%96%B0%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8"><span class="nav-number">3.</span> <span class="nav-text">注册新系统调用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8%E5%A4%84%E7%90%86%E5%87%BD%E6%95%B0"><span class="nav-number">4.</span> <span class="nav-text">定义系统调用处理函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BC%96%E8%AF%91%E5%92%8C%E5%AE%89%E8%A3%85%E5%86%85%E6%A0%B8"><span class="nav-number">5.</span> <span class="nav-text">编译和安装内核</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95%E7%A8%8B%E5%BA%8F"><span class="nav-number">6.</span> <span class="nav-text">测试程序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE"><span class="nav-number">7.</span> <span class="nav-text">参考文献</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="KMI"
+      src="/uploads/avatar.webp">
+  <p class="site-author-name" itemprop="name">KMI</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">10</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/shangguanfch" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;shangguanfch" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:shangguanfch@gmail.com" title="E-Mail → mailto:shangguanfch@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll site-overview-item animated">
+    <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://github.com/shangguanfch/shangguanfch.github.io" title="https:&#x2F;&#x2F;github.com&#x2F;shangguanfch&#x2F;shangguanfch.github.io" rel="noopener" target="_blank">GitHub Site</a>
+        </li>
+    </ul>
+  </div>
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://shangguanfch.github.io/%E5%9C%A8Linux%E5%86%85%E6%A0%B8%E4%B8%AD%E6%B7%BB%E5%8A%A0%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.webp">
+      <meta itemprop="name" content="KMI">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Know My Interest">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="在Linux内核中添加系统调用 | Know My Interest">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          在Linux内核中添加系统调用
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2025-01-02 10:45:32 / Modified: 12:01:02" itemprop="dateCreated datePublished" datetime="2025-01-02T10:45:32+08:00">2025-01-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/record/" itemprop="url" rel="index"><span itemprop="name">record</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="Symbols count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Symbols count in article: </span>
+      <span>2.6k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>2 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>本文在Linux内核6.8.0中加入新系统调用，编译、安装新的Linux内核，测试新的系统调用。<br>编译Linux内核会产生大量中间文件，建议为Ubuntu系统保留至少50G可用硬盘空间，否则会超出容量，不能完成编译。</p>
+<p>操作系统：Ubuntu 24.04.1 LTS。<br>在终端输入uname -r查看当前系统版本号，为6.8.0-x-generic。</p>
+<span id="more"></span>
+
+<h2 id="下载源代码"><a href="#下载源代码" class="headerlink" title="下载源代码"></a>下载源代码</h2><p>在系统设置-&gt;系统-&gt;软件更新-&gt;设置中，下载源代码项打勾，确定并更新软件源。</p>
+<p>安装dpkg-dev。（下载Ubuntu源代码的命令依赖dpkg-dev）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install dpkg-dev</span><br></pre></td></tr></table></figure>
+
+<p>在&#x2F;usr&#x2F;src目录下执行以下命令，获得当前内核源代码。linux内核源代码目录为linux-6.8.0。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt source linux-image-unsigned-$(uname -r)</span><br></pre></td></tr></table></figure>
+
+<p>安装编译Linux内核所需的工具。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt build-dep linux linux-image-unsigned-$(uname -r)</span><br><span class="line">sudo apt install libncurses-dev gawk flex bison openssl libssl-dev dkms libelf-dev libudev-dev libpci-dev libiberty-dev autoconf llvm</span><br></pre></td></tr></table></figure>
+
+<h2 id="加入新系统调用"><a href="#加入新系统调用" class="headerlink" title="加入新系统调用"></a>加入新系统调用</h2><h2 id="注册新系统调用"><a href="#注册新系统调用" class="headerlink" title="注册新系统调用"></a>注册新系统调用</h2><p>查看arch&#x2F;x86&#x2F;entry&#x2F;syscalls&#x2F;syscall_64.tbl文件，可以看到注释要求在所有使用common二进制接口的系统调用后添加新系统调用，因此在461号后添加以下内容，从而注册系统调用处理函数sys_my_syscall。</p>
+<figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">462 </span>    <span class="keyword">common</span>  my_syscall            sys_my_syscall</span><br></pre></td></tr></table></figure>
+
+<h2 id="定义系统调用处理函数"><a href="#定义系统调用处理函数" class="headerlink" title="定义系统调用处理函数"></a>定义系统调用处理函数</h2><p>在kernel&#x2F;sys.c的第961行后加入下列代码，定义sys_my_call()为返回进程号的函数，相当于sys_getpid()。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SYSCALL_DEFINE0(my_syscall)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">return</span> task_tgid_vnr(current);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="编译和安装内核"><a href="#编译和安装内核" class="headerlink" title="编译和安装内核"></a>编译和安装内核</h2><ul>
+<li><p>在Linux内核源代码目录&#x2F;usr&#x2F;src&#x2F;linux-6.8.0中，执行以下命令，从当前启动目录拷贝配置信息，意思是编译内核的配置与当前环境一致。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo cp -v /boot/config-$(uname -r) .config</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>编辑.config，把CONFIG_SYSTEM_TRUSTED_KEYS和CONFIG_SYSTEM_REVOCATION_KEYS改为空字符串。<br>或使用以下命令改为空字符串。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo scripts/config --disable SYSTEM_TRUSTED_KEYS</span><br><span class="line">sudo scripts/config --disable SYSTEM_REVOCATION_KEYS</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>执行以下命令启动配置界面</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo make menuconfig </span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>出现蓝色背景的kernel configuration界面，说明配置成功。save后exit即可。</p>
+<ul>
+<li><p>运行make命令，编译Linux内核：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo make</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>运行make modules_install命令安装模块。就是把编译好的模块拷贝到&#x2F;lib&#x2F;modules&#x2F;$(uname -r)目录下。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo make modules_install</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>运行make install命令安装新内核。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo make install</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>完成内核编译后，重启系统，自动进入新内核。<br>uname -r查看内核版本，显示为6.8.x（而不是上面看到的6.8.0-x-generic）。说明安装内核成功。</p>
+</li>
+</ul>
+<h2 id="测试程序"><a href="#测试程序" class="headerlink" title="测试程序"></a>测试程序</h2><p>下列C代码中，调用syscall函数传递系统调用号，获得新系统调用处理函数的返回值，即当前进程号。相当于调用<code>&lt;unistd.h&gt;</code>中的getpid()。该值存于mycall。<br>在主函数main()里打印sgfc_syscall()的返回值和getpid()的返回值，如果值相等，打印“Successfully added my system call.”（成功加入我的系统调用。）</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> __NR_my_syscall 462</span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line">  <span class="type">int</span> mycall = syscall(__NR_my_syscall);</span><br><span class="line">  <span class="type">int</span> pid = getpid();</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;sys_my_syscall() returns %d.\n&quot;</span>, mycall);</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;getpid() returns %d.\n&quot;</span>, pid);</span><br><span class="line">  <span class="keyword">if</span> (mycall == pid) <span class="built_in">printf</span>(<span class="string">&quot;Successfully added my system call.\n&quot;</span>);</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>用gcc编译并运行。</p>
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ol>
+<li>AimTao. Linux 内核｜系统调用[EB&#x2F;OL]. aimtao.net, (2022-04-12)[2024-12-15]. <a target="_blank" rel="noopener" href="https://www.aimtao.net/system-call/">https://www.aimtao.net/system-call/</a></li>
+<li>Adding a system call to Linux CS 273 (OS), Spring 2022[EB&#x2F;OL]. Stolaf.edu, (2022-04-29)[2024-12-15]. <a target="_blank" rel="noopener" href="https://www.stolaf.edu/people/rab/os/newsyscall.html">https://www.stolaf.edu/people/rab/os/newsyscall.html</a></li>
+<li>Arnold Lu. Ubuntu 22.04内核代码下载、编译、调试[EB&#x2F;OL]. 博客园, (2024-03-10)[2024-12-15]. <a target="_blank" rel="noopener" href="https://www.cnblogs.com/arnoldlu/p/18064348">https://www.cnblogs.com/arnoldlu/p/18064348</a></li>
+<li>robotech_erx. 在Ubuntu上编译安装linux内核详细过程[EB&#x2F;OL]. 博客园, (2024-04-16)[2024-12-15]. <a target="_blank" rel="noopener" href="https://www.cnblogs.com/robotech/p/16152269.html">https://www.cnblogs.com/robotech/p/16152269.html</a></li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>Post author:  </strong>KMI
+  </li>
+  <li class="post-copyright-link">
+      <strong>Post link: </strong>
+      <a href="https://shangguanfch.github.io/%E5%9C%A8Linux%E5%86%85%E6%A0%B8%E4%B8%AD%E6%B7%BB%E5%8A%A0%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8/" title="在Linux内核中添加系统调用">https://shangguanfch.github.io/在Linux内核中添加系统调用/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/en" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/linux/" rel="tag"># linux</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/Use-Visual-Studio-Code/" rel="prev" title="Use Visual Studio Code">
+                  <i class="fa fa-chevron-left"></i> Use Visual Studio Code
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2017 – 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">KMI</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="Symbols count total">38k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="Reading time total">35 mins.</span>
+  </span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
+  <div class="addthis_inline_share_toolbox">
+    <script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-63875a1b6e59dee6" async="async"></script>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.5.0/pjax.min.js" integrity="sha256-3NkoLDrmHLTYj7csHIZSr0MHAFTXth7Ua/DDt4MRUAg=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"shangguanfch","repo":"shangguanfch.github.io","client_id":"93994490c0f4071df36a","client_secret":"5aed5cf7c45488f8679c4319b286ad9cb63d8b36","admin_user":"shangguanfch","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":null,"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.min.js","integrity":"sha256-MVK9MGD/XJaGyIghSVrONSnoXoGh3IFxLw0zfvzpxR4="},"path_md5":"ba4795f7bef1324da918e8486d602dae"}</script>
+<script src="/js/third-party/comments/gitalk.js"></script>
+
+</body>
+</html>
