@@ -20,15 +20,15 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"shangguanfch.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.13.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":true,"nav":null,"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="本文在Linux内核6.8.0中加入新系统调用，编译、安装新的Linux内核，测试新的系统调用。编译Linux内核会产生大量中间文件，建议为Ubuntu系统保留至少50G硬盘空间，否则会超出容量，不能完成编译。">
+    <meta name="description" content="本文在Linux内核6.8.0中加入新系统调用，编译、安装新的Linux内核，测试新的系统调用。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="在Linux内核中添加系统调用">
 <meta property="og:url" content="https://shangguanfch.github.io/%E5%9C%A8Linux%E5%86%85%E6%A0%B8%E4%B8%AD%E6%B7%BB%E5%8A%A0%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8/index.html">
 <meta property="og:site_name" content="Know My Interest">
-<meta property="og:description" content="本文在Linux内核6.8.0中加入新系统调用，编译、安装新的Linux内核，测试新的系统调用。编译Linux内核会产生大量中间文件，建议为Ubuntu系统保留至少50G硬盘空间，否则会超出容量，不能完成编译。">
+<meta property="og:description" content="本文在Linux内核6.8.0中加入新系统调用，编译、安装新的Linux内核，测试新的系统调用。">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-01-02T02:45:32.000Z">
-<meta property="article:modified_time" content="2025-01-04T11:45:33.898Z">
+<meta property="article:modified_time" content="2025-07-15T20:43:50.327Z">
 <meta property="article:author" content="KMI">
 <meta property="article:tag" content="linux">
 <meta name="twitter:card" content="summary">
@@ -264,7 +264,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2025-01-04 19:45:33" itemprop="dateModified" datetime="2025-01-04T19:45:33+08:00">2025-01-04</time>
+      <time title="Modified: 2025-07-16 04:43:50" itemprop="dateModified" datetime="2025-07-16T04:43:50+08:00">2025-07-16</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -301,9 +301,9 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>本文在Linux内核6.8.0中加入新系统调用，编译、安装新的Linux内核，测试新的系统调用。<br>编译Linux内核会产生大量中间文件，建议为Ubuntu系统保留至少50G硬盘空间，否则会超出容量，不能完成编译。</p>
+        <p>本文在Linux内核6.8.0中加入新系统调用，编译、安装新的Linux内核，测试新的系统调用。</p>
 <span id="more"></span>
-
+<p>编译Linux内核会产生大量中间文件，建议为Ubuntu系统保留至少50G硬盘空间，否则会超出容量，不能完成编译。</p>
 <p>操作系统：Ubuntu 24.04.1 LTS。<br>在终端输入uname -r查看当前系统版本号，为6.8.0-x-generic。</p>
 <h2 id="下载源代码"><a href="#下载源代码" class="headerlink" title="下载源代码"></a>下载源代码</h2><p>在系统设置-&gt;系统-&gt;软件更新-&gt;设置中，下载源代码项打勾，确定并更新软件源。</p>
 <p>安装dpkg-dev。（下载Ubuntu源代码的命令依赖dpkg-dev）</p>
@@ -323,27 +323,34 @@
 
 <p>如果在新增的C语言文件定义新系统调用处理函数，则需要修改相应文件夹中Makefile的obj-y，并在include&#x2F;linux&#x2F;syscalls.h中声明新函数。</p>
 <h2 id="编译和安装内核"><a href="#编译和安装内核" class="headerlink" title="编译和安装内核"></a>编译和安装内核</h2><ul>
-<li><p>在Linux内核源代码目录&#x2F;usr&#x2F;src&#x2F;linux-6.8.0下，执行以下命令，从当前启动目录拷贝配置信息，意思是编译内核的配置与当前环境一致。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo cp -v /boot/config-$(uname -r) .config</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>编辑.config，把CONFIG_SYSTEM_TRUSTED_KEYS和CONFIG_SYSTEM_REVOCATION_KEYS改为空字符串。或使用以下命令。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo scripts/config --disable SYSTEM_TRUSTED_KEYS</span><br><span class="line">sudo scripts/config --disable SYSTEM_REVOCATION_KEYS</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>执行以下命令启动配置界面</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo make menuconfig  # 使用当前配置</span><br><span class="line"># sudo make defconfig  # 使用默认配置</span><br></pre></td></tr></table></figure></li>
+<li>在Linux内核源代码目录&#x2F;usr&#x2F;src&#x2F;linux-6.8.0下，执行以下命令，从当前启动目录拷贝配置信息，意思是编译内核的配置与当前环境一致。</li>
 </ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo cp -v /boot/config-$(uname -r) .config</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>编辑.config，把CONFIG_SYSTEM_TRUSTED_KEYS和CONFIG_SYSTEM_REVOCATION_KEYS改为空字符串。或使用以下命令。</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo scripts/config --disable SYSTEM_TRUSTED_KEYS</span><br><span class="line">sudo scripts/config --disable SYSTEM_REVOCATION_KEYS</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>执行以下命令启动配置界面</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo make menuconfig  # 使用当前配置</span><br><span class="line"># sudo make defconfig  # 使用默认配置</span><br></pre></td></tr></table></figure>
+
 <p>出现蓝色背景的kernel configuration界面，说明配置成功。save后exit即可。</p>
 <ul>
-<li><p>运行make命令，编译Linux内核。需要较长时间。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo make -j$(nproc)  # 按照核心数量多核编译</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>运行make modules_install命令安装内核模块。就是把编译好的模块拷贝到&#x2F;lib&#x2F;modules&#x2F;$(uname -r)目录下。</p>
-</li>
-<li><p>运行make install命令安装新内核。</p>
+<li>运行make命令，编译Linux内核。需要较长时间。</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo make -j$(nproc)  # 按照核心数量，进行多核编译</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>运行make modules_install命令安装内核模块。就是把编译好的模块拷贝到&#x2F;lib&#x2F;modules&#x2F;$(uname -r)目录下。</li>
+<li>运行make install命令安装新内核。</li>
+</ul>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo make modules_install # 安装内核模块</span><br><span class="line">sudo make install   # 安装新内核</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>完成内核编译后，重启系统，自动进入新内核。<br>uname -r或uname -a查看内核版本，显示为6.8.x（而不是上面看到的6.8.0-x-generic），说明成功安装新内核。</p>
-</li>
+
+<ul>
+<li>完成内核编译后，重启系统，自动进入新内核。<br>uname -r或uname -a查看内核版本，显示为6.8.x（而不是上面看到的6.8.0-x-generic），说明成功安装新内核。</li>
 </ul>
 <h2 id="测试程序"><a href="#测试程序" class="headerlink" title="测试程序"></a>测试程序</h2><p>下列C代码中，调用syscall函数传递系统调用号，获得新系统调用处理函数的返回值，即当前进程号。相当于调用<code>&lt;unistd.h&gt;</code>中的getpid()。<br>在主函数main()里打印syscall()和getpid()的返回值，如果两个值相等，打印“Successfully added my system call.”（成功加入我的系统调用。）</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> __NR_my_syscall 462</span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line">  <span class="type">int</span> mycall = syscall(__NR_my_syscall);</span><br><span class="line">  <span class="type">int</span> pid = getpid();</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;sys_my_syscall() returns %d.\n&quot;</span>, mycall);</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;getpid() returns %d.\n&quot;</span>, pid);</span><br><span class="line">  <span class="keyword">if</span> (mycall == pid) <span class="built_in">printf</span>(<span class="string">&quot;Successfully added my system call.\n&quot;</span>);</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -427,13 +434,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="Symbols count total">37k</span>
+    <span title="Symbols count total">36k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">34 mins.</span>
+    <span title="Reading time total">32 mins.</span>
   </span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>

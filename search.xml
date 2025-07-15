@@ -29,65 +29,6 @@
       </tags>
   </entry>
   <entry>
-    <title>About Text Editors</title>
-    <url>/About-Text-Editors/</url>
-    <content><![CDATA[<p>This article is a brief introduction of some text editors. There are several text editors for coding and writing. Which one should be chosen? It had led to several debetes.</p>
-<span id="more"></span>
-
-<h2 id="Guides"><a href="#Guides" class="headerlink" title="Guides"></a>Guides</h2><p>Read these articles to get a simple impression.</p>
-<ul>
-<li><a href="http://blog.liveedu.tv/10-best-text-editors-programming-2016/">10+ Best Text Editors For Programming 2016&#x2F;2017</a></li>
-<li><a href="https://www.codementor.io/mattgoldspink/best-text-editor-atom-sublime-vim-visual-studio-code-du10872i7">Best Text Editor? Atom vs Sublime vs Visual Studio Code vs Vim 2016</a></li>
-<li><a href="http://www.techradar.com/news/the-best-free-text-editor-2017">The best free text editor 2017</a></li>
-</ul>
-<p>Explore more:</p>
-<ul>
-<li><a href="https://www.g2crowd.com/categories/text-editor">A Simple Comparison for You</a></li>
-<li><a href="https://www.slant.co/topics/12/~best-programming-text-editors">A Ranking of Best Programming Text Editors</a></li>
-</ul>
-<p>Read <a href="https://insights.stackoverflow.com/survey/">Stack Overflow Annual Developer Survey</a> to find the popular editors.</p>
-<ul>
-<li><a href="https://insights.stackoverflow.com/survey/2017#technology-most-popular-developer-environments-by-occupation">Stack Overflow Developer Survey 2017#technology-most-popular-developer-environments-by-occupation</a></li>
-<li><a href="https://insights.stackoverflow.com/survey/2016#technology-development-environments">Stack Overflow Developer Survey 2016#technology-development-environments</a></li>
-</ul>
-<p><a href="https://github.com/sindresorhus/awesome">GitHub Awesome</a>: curated list of awesome lists. Find guides to use these editors in awesome lists.</p>
-<p>See also Zhihu articles:</p>
-<ul>
-<li><a href="https://zhuanlan.zhihu.com/p/21434126">https://zhuanlan.zhihu.com/p/21434126</a></li>
-<li><a href="https://zhuanlan.zhihu.com/p/21444928">https://zhuanlan.zhihu.com/p/21444928</a></li>
-<li><a href="https://zhuanlan.zhihu.com/p/22309567">https://zhuanlan.zhihu.com/p/22309567</a></li>
-</ul>
-<h2 id="Vim"><a href="#Vim" class="headerlink" title="Vim"></a><a href="https://vim.sourceforge.io/">Vim</a></h2><p>Vim - the ubiquitous text editor.</p>
-<p>Vim is a highly configurable text editor built to make creating and changing any kind of text very efficient. It is included as “vi” with most UNIX systems and with Apple OS X.</p>
-<p>Vim Tips wiki: <a href="http://vim.wikia.com/wiki/Vim_Tips_Wiki">http://vim.wikia.com/wiki/Vim_Tips_Wiki</a></p>
-<p><a href="https://spacevim.org/">SpaceVim</a>: a community-driven vim distribution inspired by spacemacs.</p>
-<h2 id="Emacs"><a href="#Emacs" class="headerlink" title="Emacs"></a><a href="https://www.gnu.org/software/emacs/">Emacs</a></h2><p>An extensible, customizable, free&#x2F;libre text editor — and more.</p>
-<p>Emacs Wiki: <a href="https://www.emacswiki.org/emacs/SiteMap">https://www.emacswiki.org/emacs/SiteMap</a></p>
-<p><a href="http://spacemacs.org/">Spacemacs</a>: A community-driven Emacs distribution - The best editor is neither Emacs nor Vim, it’s Emacs and Vim!</p>
-<h2 id="Sublime-Text"><a href="#Sublime-Text" class="headerlink" title="Sublime Text"></a><a href="http://www.sublimetext.com/">Sublime Text</a></h2><p>A sophisticated text editor for code, markup and prose.</p>
-<h2 id="Visual-Studio-Code"><a href="#Visual-Studio-Code" class="headerlink" title="Visual Studio Code"></a><a href="https://code.visualstudio.com/">Visual Studio Code</a></h2><p>Free. Open source. Runs everywhere.</p>
-<p>In Settings, search <code>Terminal › Integrated › Default Profile: Windows</code> to change default profile shell.</p>
-<p>My usage: <a href="/Use-Visual-Studio-Code">Use Visual Studio Code</a></p>
-<h2 id="Atom"><a href="#Atom" class="headerlink" title="Atom"></a><del><a href="https://atom.io/">Atom</a></del></h2><p>Outdated. Atom is closed now.</p>
-<p>Atom is a text editor that’s modern, approachable, yet hackable to the core—a tool you can customize to do anything but also use productively without ever touching a config file.</p>
-<p>It’s hard to install packages from <a href="https://github.com/atom/apm">apm</a> in China. If you encouter some problems while installing packages, follow steps below.</p>
-<p>Use npm mirror of China.</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">apm config set registry https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
-
-<p>Or set proxy for apm. If you use SS or SSR, you can run commands as follows (may need modifying to suit your personal settings).</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">apm config set strict-ssl false</span><br><span class="line">apm config set http-proxy socks5://127.0.0.1:1080</span><br><span class="line">apm config set https-proxy socks5://127.0.0.1:1080</span><br></pre></td></tr></table></figure>
-<p>View configuration at <code>~/.atom/.apmrc</code>. For more information of using apm in China, visit <a href="https://atom-china.org/t/atom/797/2">https://atom-china.org/t/atom/797/2</a>.</p>
-<p>Welcome to <a href="https://atom-china.org/">Atom China</a>.</p>
-]]></content>
-      <categories>
-        <category>record</category>
-      </categories>
-      <tags>
-        <tag>record</tag>
-        <tag>editor</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Ccross the Great Firewall</title>
     <url>/Cross-the-Great-Firewall/</url>
     <content><![CDATA[<blockquote>
@@ -253,6 +194,33 @@
         <tag>git</tag>
         <tag>centos</tag>
         <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>About Text Editors</title>
+    <url>/About-Text-Editors/</url>
+    <content><![CDATA[<p>A brief introduction to text editors. There are several text editors for coding and writing. Which one should be chosen?</p>
+<span id="more"></span>
+
+<p><a href="https://github.com/sindresorhus/awesome?tab=readme-ov-file#editors">GitHub Awesome</a>: curated list of awesome lists. Find guides to use these editors in awesome lists.</p>
+<h2 id="Vim"><a href="#Vim" class="headerlink" title="Vim"></a><a href="https://vim.sourceforge.io/">Vim</a></h2><p>Vim - the ubiquitous text editor.</p>
+<p>Vim is a highly configurable text editor built to make creating and changing any kind of text very efficient. It is included as “vi” with most UNIX systems and with Apple OS X.</p>
+<p>Vim Tips wiki: <a href="http://vim.wikia.com/wiki/Vim_Tips_Wiki">http://vim.wikia.com/wiki/Vim_Tips_Wiki</a></p>
+<p><a href="https://spacevim.org/">SpaceVim</a>: a community-driven vim distribution inspired by spacemacs.</p>
+<h2 id="Emacs"><a href="#Emacs" class="headerlink" title="Emacs"></a><a href="https://www.gnu.org/software/emacs/">Emacs</a></h2><p>An extensible, customizable, free&#x2F;libre text editor — and more.</p>
+<p>Emacs Wiki: <a href="https://www.emacswiki.org/emacs/SiteMap">https://www.emacswiki.org/emacs/SiteMap</a></p>
+<p><a href="http://spacemacs.org/">Spacemacs</a>: A community-driven Emacs distribution - The best editor is neither Emacs nor Vim, it’s Emacs and Vim!</p>
+<h2 id="Sublime-Text"><a href="#Sublime-Text" class="headerlink" title="Sublime Text"></a><a href="http://www.sublimetext.com/">Sublime Text</a></h2><p>A sophisticated text editor for code, markup and prose.</p>
+<h2 id="Visual-Studio-Code"><a href="#Visual-Studio-Code" class="headerlink" title="Visual Studio Code"></a><a href="https://code.visualstudio.com/">Visual Studio Code</a></h2><p>Free. Open source. Runs everywhere.</p>
+<p>My usage: <a href="/Use-Visual-Studio-Code">Use Visual Studio Code</a></p>
+<h2 id="Atom"><a href="#Atom" class="headerlink" title="Atom"></a><del><a href="https://atom.io/">Atom</a></del></h2><p>Outdated. Atom is closed now.</p>
+]]></content>
+      <categories>
+        <category>record</category>
+      </categories>
+      <tags>
+        <tag>record</tag>
+        <tag>editor</tag>
       </tags>
   </entry>
   <entry>
@@ -504,12 +472,12 @@
 <blockquote>
 <p>Tip: If using Arch Linux, notice <a href="https://wiki.archlinux.org/index.php/Node.js#Allow_user-wide_installations">Arch Wiki: Node.js#Allow_user-wide_installations</a>.</p>
 </blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># install command cnpm</span><br><span class="line">npm install -g cnpm --registry=https://registry.npm.taobao.org</span><br><span class="line"></span><br><span class="line"># or just set registry</span><br><span class="line">npm config set registry https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># install command cnpm</span><br><span class="line">npm install -g cnpm --registry=https://registry.npmmirror.com</span><br><span class="line"></span><br><span class="line"># or just set registry</span><br><span class="line">npm config set registry https://registry.npmmirror.com</span><br></pre></td></tr></table></figure>
 
 <h2 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h2><p>Run the following commands</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install hexo-cli --location=global</span><br><span class="line">hexo init hexo-site</span><br><span class="line">cd hexo-site</span><br><span class="line">hexo server</span><br></pre></td></tr></table></figure>
 <p>Then you can see a web page at <a href="http://localhost:4000/">http://localhost:4000/</a>.</p>
-<p>Or a more convenient way: use neoFelhz’s <a href="https://github.com/neoFelhz/HexoKit" title="https://github.com/neoFelhz/HexoKit">HexoKit</a>.</p>
+<p>Or a more convenient way: use neoFelhz’s <a href="https://github.com/neoFelhz/HexoKit" title="https:&#x2F;&#x2F;github.com&#x2F;neoFelhz&#x2F;HexoKit">HexoKit</a>.</p>
 <h2 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h2><p>For more information, visit <a href="https://hexo.io/docs/commands.html">https://hexo.io/docs/commands.html</a>.</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># in hexo-site</span><br><span class="line"># start a local server, by default, Hexo is running at http://localhost:4000/</span><br><span class="line">hexo s</span><br><span class="line"># clean the cache file (db.json)</span><br><span class="line">hexo clean</span><br><span class="line"># generate static files (/public)</span><br><span class="line">hexo g</span><br><span class="line"># deploy website</span><br><span class="line">hexo d</span><br><span class="line"># create new article in source/_posts</span><br><span class="line">hexo new &quot;title&quot;</span><br></pre></td></tr></table></figure>
 
@@ -562,11 +530,11 @@
 <li>provides free SSL certificates for custom domains</li>
 <li>force SSL</li>
 </ul>
-<p>Read <a href="https://firebase.google.com/docs/hosting/" title="https://firebase.google.com/docs/hosting/">Firebase Hosting Docs</a> to learn how to deploy static site to Firebase.</p>
+<p>Read <a href="https://firebase.google.com/docs/hosting/" title="https:&#x2F;&#x2F;firebase.google.com&#x2F;docs&#x2F;hosting&#x2F;">Firebase Hosting Docs</a> to learn how to deploy static site to Firebase.</p>
 <blockquote>
 <p>You need to cross GFW, and have a Google account.</p>
 </blockquote>
-<p>Login and create a project in <a href="https://console.firebase.google.com/" title="https://console.firebase.google.com/">Firebase console</a>, get project-id.</p>
+<p>Login and create a project in <a href="https://console.firebase.google.com/" title="https:&#x2F;&#x2F;console.firebase.google.com&#x2F;">Firebase console</a>, get project-id.</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install -g firebase-tools</span><br><span class="line"></span><br><span class="line"># may need set proxy for teriminal temporarily,</span><br><span class="line"># as follows (socks5) (optional)</span><br><span class="line">export http_proxy=socks5://127.0.0.1:1080</span><br><span class="line"></span><br><span class="line"># in hexo-site</span><br><span class="line">firebase login</span><br><span class="line">firebase init</span><br><span class="line">firebase use --add &lt;project-id&gt;</span><br><span class="line"></span><br><span class="line"># all right, try to deploy /public to Firebase</span><br><span class="line">firebase deploy</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>In fact, Firebase is user-friendly (it has Chinese tutorial), just need to follow its guides. In its console, you can see your history record and learn how to bind domain name.</p>
@@ -669,7 +637,7 @@
 <p>Otherwise, will show<img src="/uploads/neutral.svg" align ="justify" width="20" height="20"></p>
 <p>You can use <a href="https://www.jitbit.com/sslcheck/">JitBit</a> to scan your website for non-secure content.</p>
 <p>I don’t think a secure symbol provided by Chrome or Firefox is important… But it seems that browsers force us be “secure”.</p>
-<h2 id="About-This-Blog"><a href="#About-This-Blog" class="headerlink" title="About This Blog"></a>About This Blog</h2><p>The comment system of my blog is Gitalk. Here is my whole custom settings: <a href="https://github.com/shangguanfch/shangguanfch.github.io/blob/master/README.md" title="https://github.com/shangguanfch/shangguanfch.github.io/blob/master/README.md">README.md</a>.</p>
+<h2 id="About-This-Blog"><a href="#About-This-Blog" class="headerlink" title="About This Blog"></a>About This Blog</h2><p>The comment system of my blog is Gitalk. Here is my whole custom settings: <a href="https://github.com/shangguanfch/shangguanfch.github.io/blob/master/README.md" title="https:&#x2F;&#x2F;github.com&#x2F;shangguanfch&#x2F;shangguanfch.github.io&#x2F;blob&#x2F;master&#x2F;README.md">README.md</a>.</p>
 <p>I choose Github Actions to deploy automatically, see <a href="https://vuepress-theme-reco.recoluan.com/views/other/github-actions.html#%E8%AE%BE%E7%BD%AE-secrets">Lasy：使用 GitHub Actions 自动部署博客</a>. <a href="https://www.travis-ci.org/">Travis CI</a> or <a href="https://about.gitlab.com/features/gitlab-ci-cd/">GitLab CI</a> is also a chioce.</p>
 <p>Others’ relative articles:</p>
 <ul>
@@ -712,7 +680,7 @@
 <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">marp:</span> <span class="literal">true</span></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="comment"># Your slide deck</span></span><br></pre></td></tr></table></figure>
 
 <h3 id="Code-Runner"><a href="#Code-Runner" class="headerlink" title="Code Runner"></a>Code Runner</h3><p><a href="https://marketplace.visualstudio.com/items?itemName=formulahendry.code-runner">Code Runner</a> is a easy way to run code snippet or code file for multiple languages: C, C++, Java, Python, and so on.</p>
-<h2 id="Build-C-x2F-C-Environment"><a href="#Build-C-x2F-C-Environment" class="headerlink" title="Build C&#x2F;C++ Environment"></a>Build C&#x2F;C++ Environment</h2><p>This chapter introduces how to build a C&#x2F;C++ environment on VSC on Windows.</p>
+<h2 id="Build-C-C-Environment"><a href="#Build-C-C-Environment" class="headerlink" title="Build C&#x2F;C++ Environment"></a>Build C&#x2F;C++ Environment</h2><p>This chapter introduces how to build a C&#x2F;C++ environment on VSC on Windows.</p>
 <p>Steps:</p>
 <ol>
 <li>Download C&#x2F;C++ Extension. Open VSC, click Extensions (扩展), or use shortcut <kbd>ctrl+shift+x</kbd>. Search C&#x2F;C++ and download it.</li>
@@ -731,8 +699,8 @@
 <h2 id="Simple-ACM-settings"><a href="#Simple-ACM-settings" class="headerlink" title="Simple ACM settings"></a>Simple ACM settings</h2><ul>
 <li><a href="https://marketplace.visualstudio.com/items?itemName=km.competitive-coding-helper">Competitive Coding Helper</a> is a good extension to test codes.</li>
 </ul>
-<p>If writing codes in personal computer, may click settings-&gt;<code>用户代码片段</code>, create <code>cpp.json</code>, which will save time. Here is a <code>cpp.json</code> example:</p>
-<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;cdf&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;prefix&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cdf&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;body&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">      <span class="string">&quot;#include&lt;bits/stdc++.h&gt;&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="string">&quot;using namespace std;&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="string">&quot;#define lop(i,l,r) for(int i=l; i&lt;r; i++)&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="string">&quot;#define rep(i,l,r) for(int i=l; i&lt;=r; i++)&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="string">&quot;#define per(i,r,l) for(int i=r; i&gt;=l; i--)&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="string">&quot;#define eb emplace_back&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="string">&quot;using ll=int64_t;&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="string">&quot;void solve() &#123;&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="string">&quot;\tint n;cin&gt;&gt;n;&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="string">&quot;\t$0\n&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="string">&quot;&#125;\n&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="string">&quot;int main() &#123;&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="string">&quot;\tcin.tie(0)-&gt;sync_with_stdio(0);&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="string">&quot;\tint _; cin&gt;&gt;_;&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="string">&quot;\twhile(_--) solve();&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="string">&quot;\treturn 0;&quot;</span></span><br><span class="line">      <span class="string">&quot;&#125;&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;description&quot;</span><span class="punctuation">:</span> <span class="string">&quot;init codeforce model&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+<p>If writing codes in personal computer, click settings-&gt;<code>用户代码片段</code>, create <code>cpp.json</code>, which may save time.<br>Here is a <code>cpp.json</code> example:</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;cdf&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;prefix&quot;</span><span class="punctuation">:</span> <span class="string">&quot;cdf&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;body&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">      <span class="string">&quot;#include&lt;bits/stdc++.h&gt;&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="string">&quot;using namespace std;&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="string">&quot;void solve() &#123;&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="string">&quot;\tint n;cin&gt;&gt;n;&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="string">&quot;\t$0\n&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="string">&quot;&#125;\n&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="string">&quot;int main() &#123;&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="string">&quot;\tcin.tie(0)-&gt;sync_with_stdio(0);&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="string">&quot;\tint _; cin&gt;&gt;_;&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="string">&quot;\twhile(_--) solve();&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="string">&quot;\treturn 0;&quot;</span></span><br><span class="line">      <span class="string">&quot;&#125;&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;description&quot;</span><span class="punctuation">:</span> <span class="string">&quot;init codeforce model&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
 <p>This is to meet the multiple testcases of codeforces. In <code>.cpp</code> file, type <code>cdf</code> and enter, then above codes will be added. But I think the template of Competitive Coding Helper is better.</p>
 <h2 id="Clang-Format"><a href="#Clang-Format" class="headerlink" title="Clang-Format"></a>Clang-Format</h2><p>Find <code>clang-format.exe</code>, then <code>./clang-format -style=LLVM -dump-config &gt; .clang-format</code> can generate a <code>.clang-format</code> file. The style can be LLVM, Google, Chromium, and so on.</p>
 <p>ref: <a href="https://zhuanlan.zhihu.com/p/356143396">zhihu: VS Code+Clang-format格式化代码</a></p>
@@ -777,9 +745,9 @@
   <entry>
     <title>在Linux内核中添加系统调用</title>
     <url>/%E5%9C%A8Linux%E5%86%85%E6%A0%B8%E4%B8%AD%E6%B7%BB%E5%8A%A0%E7%B3%BB%E7%BB%9F%E8%B0%83%E7%94%A8/</url>
-    <content><![CDATA[<p>本文在Linux内核6.8.0中加入新系统调用，编译、安装新的Linux内核，测试新的系统调用。<br>编译Linux内核会产生大量中间文件，建议为Ubuntu系统保留至少50G硬盘空间，否则会超出容量，不能完成编译。</p>
+    <content><![CDATA[<p>本文在Linux内核6.8.0中加入新系统调用，编译、安装新的Linux内核，测试新的系统调用。</p>
 <span id="more"></span>
-
+<p>编译Linux内核会产生大量中间文件，建议为Ubuntu系统保留至少50G硬盘空间，否则会超出容量，不能完成编译。</p>
 <p>操作系统：Ubuntu 24.04.1 LTS。<br>在终端输入uname -r查看当前系统版本号，为6.8.0-x-generic。</p>
 <h2 id="下载源代码"><a href="#下载源代码" class="headerlink" title="下载源代码"></a>下载源代码</h2><p>在系统设置-&gt;系统-&gt;软件更新-&gt;设置中，下载源代码项打勾，确定并更新软件源。</p>
 <p>安装dpkg-dev。（下载Ubuntu源代码的命令依赖dpkg-dev）</p>
@@ -799,27 +767,34 @@
 
 <p>如果在新增的C语言文件定义新系统调用处理函数，则需要修改相应文件夹中Makefile的obj-y，并在include&#x2F;linux&#x2F;syscalls.h中声明新函数。</p>
 <h2 id="编译和安装内核"><a href="#编译和安装内核" class="headerlink" title="编译和安装内核"></a>编译和安装内核</h2><ul>
-<li><p>在Linux内核源代码目录&#x2F;usr&#x2F;src&#x2F;linux-6.8.0下，执行以下命令，从当前启动目录拷贝配置信息，意思是编译内核的配置与当前环境一致。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo cp -v /boot/config-$(uname -r) .config</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>编辑.config，把CONFIG_SYSTEM_TRUSTED_KEYS和CONFIG_SYSTEM_REVOCATION_KEYS改为空字符串。或使用以下命令。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo scripts/config --disable SYSTEM_TRUSTED_KEYS</span><br><span class="line">sudo scripts/config --disable SYSTEM_REVOCATION_KEYS</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>执行以下命令启动配置界面</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo make menuconfig  # 使用当前配置</span><br><span class="line"># sudo make defconfig  # 使用默认配置</span><br></pre></td></tr></table></figure></li>
+<li>在Linux内核源代码目录&#x2F;usr&#x2F;src&#x2F;linux-6.8.0下，执行以下命令，从当前启动目录拷贝配置信息，意思是编译内核的配置与当前环境一致。</li>
 </ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo cp -v /boot/config-$(uname -r) .config</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>编辑.config，把CONFIG_SYSTEM_TRUSTED_KEYS和CONFIG_SYSTEM_REVOCATION_KEYS改为空字符串。或使用以下命令。</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo scripts/config --disable SYSTEM_TRUSTED_KEYS</span><br><span class="line">sudo scripts/config --disable SYSTEM_REVOCATION_KEYS</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>执行以下命令启动配置界面</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo make menuconfig  # 使用当前配置</span><br><span class="line"># sudo make defconfig  # 使用默认配置</span><br></pre></td></tr></table></figure>
+
 <p>出现蓝色背景的kernel configuration界面，说明配置成功。save后exit即可。</p>
 <ul>
-<li><p>运行make命令，编译Linux内核。需要较长时间。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo make -j$(nproc)  # 按照核心数量多核编译</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>运行make modules_install命令安装内核模块。就是把编译好的模块拷贝到&#x2F;lib&#x2F;modules&#x2F;$(uname -r)目录下。</p>
-</li>
-<li><p>运行make install命令安装新内核。</p>
+<li>运行make命令，编译Linux内核。需要较长时间。</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo make -j$(nproc)  # 按照核心数量，进行多核编译</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>运行make modules_install命令安装内核模块。就是把编译好的模块拷贝到&#x2F;lib&#x2F;modules&#x2F;$(uname -r)目录下。</li>
+<li>运行make install命令安装新内核。</li>
+</ul>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo make modules_install # 安装内核模块</span><br><span class="line">sudo make install   # 安装新内核</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>完成内核编译后，重启系统，自动进入新内核。<br>uname -r或uname -a查看内核版本，显示为6.8.x（而不是上面看到的6.8.0-x-generic），说明成功安装新内核。</p>
-</li>
+
+<ul>
+<li>完成内核编译后，重启系统，自动进入新内核。<br>uname -r或uname -a查看内核版本，显示为6.8.x（而不是上面看到的6.8.0-x-generic），说明成功安装新内核。</li>
 </ul>
 <h2 id="测试程序"><a href="#测试程序" class="headerlink" title="测试程序"></a>测试程序</h2><p>下列C代码中，调用syscall函数传递系统调用号，获得新系统调用处理函数的返回值，即当前进程号。相当于调用<code>&lt;unistd.h&gt;</code>中的getpid()。<br>在主函数main()里打印syscall()和getpid()的返回值，如果两个值相等，打印“Successfully added my system call.”（成功加入我的系统调用。）</p>
 <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> __NR_my_syscall 462</span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line">  <span class="type">int</span> mycall = syscall(__NR_my_syscall);</span><br><span class="line">  <span class="type">int</span> pid = getpid();</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;sys_my_syscall() returns %d.\n&quot;</span>, mycall);</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;getpid() returns %d.\n&quot;</span>, pid);</span><br><span class="line">  <span class="keyword">if</span> (mycall == pid) <span class="built_in">printf</span>(<span class="string">&quot;Successfully added my system call.\n&quot;</span>);</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
